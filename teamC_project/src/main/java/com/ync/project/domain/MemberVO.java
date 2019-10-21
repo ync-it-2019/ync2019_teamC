@@ -5,6 +5,12 @@ import java.util.List;
 
 import lombok.Data;
 
+/**
+  * @FileName	: MemberVO.java
+  * @Date		: 2019. 10. 21. 
+  * @Author		: 곽우렬
+  * @프로그램 설명 : 회원정보 VO
+  */
 @Data
 public class MemberVO {
 	
@@ -15,6 +21,10 @@ public class MemberVO {
 	
 	private String userName;
 	private boolean enabled;
+	
+	private String phone;
+	private String email;
+	private String sex;
 
 	private Date regDate;
 	private Date updateDate;
