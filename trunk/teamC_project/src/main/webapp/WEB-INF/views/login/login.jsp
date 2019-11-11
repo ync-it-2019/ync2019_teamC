@@ -1,10 +1,5 @@
-<!--A Design by W3layouts
-   Author: W3layout
-   Author URL: http://w3layouts.com
-   License: Creative Commons Attribution 3.0 Unported
-   License URL: http://creativecommons.org/licenses/by/3.0/
-   -->
    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -26,11 +21,13 @@
    <body>
       <div class="mid-class">
          <div class="art-right-w3ls">
-            <h2>Sign In and Sign Up</h2>
-            <form action="#" method="post">
+            <h2>로그인</h2>
+            <h3><c:out value="${error}"/></h3>
+            <h3><c:out value="${logout}"/></h3>
+            <form action="/login" method="post">
                <div class="main">
                   <div class="form-left-to-w3l">
-                     <input type="text" name="name" placeholder="Username" required="">
+                     <input type="text" name="username" placeholder="Id" required="">
                   </div>
                   <div class="form-left-to-w3l ">
                      <input type="password" name="password" placeholder="Password" required="">
@@ -41,53 +38,18 @@
                   <input type="checkbox" class="checked">
                   <span class="remenber-me">Remember me </span>
                </div>
-               <div class="right-side-forget">
-                  <a href="#" class="for">Forgot password...?</a>
-               </div>
                <div class="clear"></div>
                <div class="btnn">
-                  <button type="submit">Sign In</button>
+                  <button type="submit">Login</button>
                </div>
+               <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             </form>
             <div class="w3layouts_more-buttn">
                <h3>Don't Have an account..?
-                  <a href="#content1">Sign Up Here
+                  <a href="/login/register">Sign Up Here
                   </a>
                </h3>
             </div>
-            <!-- popup-->
-            <div id="content1" class="popup-effect">
-               <div class="popup">
-                  <!--login form-->
-                  <div class="letter-w3ls">
-                     <form action="#" method="post">
-                        <div class="form-left-to-w3l">
-                           <input type="text" name="name" placeholder="Username" required="" style="color:#000;">
-                        </div>
-                        <div class="form-left-to-w3l">
-                           <input type="text" name="name" placeholder="Phone" required="" style="color:#000;">
-                        </div>
-                        <div class="form-left-to-w3l">
-                           <input type="email" name="email" placeholder="Email" required="" style="color:#000;">
-                        </div>
-                        <div class="form-left-to-w3l">
-                           <input type="password" name="password" placeholder="Password" required="" style="color:#000;">
-                        </div>
-                        <div class="form-left-to-w3l margin-zero">
-                           <input type="password" name="password" placeholder="Confirm Password" required="" style="color:#000;">
-                        </div>
-                        <div class="btnn">
-                           <button type="submit">Sign Up</button>
-                           <br>
-                        </div>
-                     </form>
-                     <div class="clear"></div>
-                  </div>
-                  <!--//login form-->
-                  <a class="close" href="#">&times;</a>
-               </div>
-            </div>
-            <!-- //popup -->
          </div>
          <div class="art-left-w3ls">
             <h1 class="header-w3ls">Strip 로그인해서</h1>
@@ -95,7 +57,6 @@
             <h1 class="header-w3ls">챙기세요</h1>
          </div>
       </div>
-      <footer class="bottem-wthree-footer">
-      </footer>
+
    </body>
 </html>

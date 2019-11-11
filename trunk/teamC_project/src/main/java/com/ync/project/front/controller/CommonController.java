@@ -20,14 +20,14 @@ public class CommonController {
 		model.addAttribute("msg", "Access Denied");
 	}
 
-	@GetMapping("/customLogin")
+	@GetMapping("/login/login")
 	public void loginInput(String error, String logout, Model model) {
 
 		log.info("error: " + error);
 		log.info("logout: " + logout);
 
 		if (error != null) {
-			model.addAttribute("error", "Login Error Check Your Account");
+			model.addAttribute("error", "아이디 또는 비밀번호가 잘못되었습니다.");
 		}
 
 		if (logout != null) {

@@ -14,11 +14,9 @@ import lombok.Data;
 public class ReservationVO {
 	private Long re_idx;
 	private int product_num;
-	private String title;
-	private String content;
 	private String userid;
 	private Date re_date;
-	private Long price;
+	private int price;
 	private String status;
 
 }

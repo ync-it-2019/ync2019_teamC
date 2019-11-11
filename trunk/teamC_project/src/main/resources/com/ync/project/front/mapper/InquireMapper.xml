@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ync.project.front.mapper.InquireMapper">
+
+<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							writer like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+	<resultMap type="com.ync.project.domain.InquireVO" id="inquireMap">
+		<id property="userid" column="userid"/>
+		<result property="q_idx" column="q_idx"/>
+		<result property="product_num" column="product_num"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="userid" column="userid"/>
+		<result property="writedate" column="writedate"/>
+		<result property="answer_check" column="answer_check"/>
+		<result property="answer" column="answer"/>
+	</resultMap>
+
+	<select id="getList1" resultMap="inquireMap">
+	<![CDATA[
+		SELECT *
+	    FROM team_c_inquire 
+	    where q_idx > 0 
+		]]>
+	</select>
+	
+	<insert id="insert">
+	INSERT INTO team_c_inquire (q_idx,
+	                           product_num,
+	                           title,
+	                           content,
+	                           userid,
+	                           writedate,
+	                           answer_check,
+	                           answer)
+	                   values (team_c_seq_inquire.nextval,
+	                           #{product_num},
+	                           #{title},
+	                           #{content},
+	                           #{userid},
+	                           sysdate,
+	                           #{answer_check},
+	                           #{answer})
+	</insert>
+	
+		<insert id="insertSelectKey">
+	<selectKey keyProperty="q_idx" order="BEFORE" resultType="long">
+	SELECT team_c_seq_inquire.nextval FROM dual
+	</selectKey>
+	
+	INSERT INTO team_c_inquire (q_idx,
+	                           product_num,
+	                           title,
+	                           content,
+	                           userid,
+	                           writedate,
+	                           answer_check,
+	                           answer)
+	                   values (#{q_idx},
+	                           #{product_num},
+	                           #{title},
+	                           #{content},
+	                           #{userid},
+	                           sysdate,
+	                           #{answer_check},
+	                           #{answer})       
+	</insert>
+	
+	<select id="read" resultMap="inquireMap">
+	SELECT *
+	FROM   team_c_inquire
+	WHERE  q_idx = #{q_idx}
+	</select>
+	
+	<select id="getList2" resultMap="inquireMap">
+	<![CDATA[
+		SELECT *
+	    FROM team_c_inquire 
+	    where product_num = #{product_num} 
+		]]>
+	</select>
+	
+	<delete id="delete">
+	DELETE FROM team_c_inquire 
+	WHERE  q_idx = #{q_idx}
+	</delete>
+	
+	<update id="update">
+	UPDATE team_c_inquire
+	set title = #{title},
+	content = #{content},
+	answer_check = #{answer_check},
+	answer = #{answer}
+	WHERE q_idx = #{q_idx}
+	</update>
+	
+	<select id="getListWithPaging" resultMap="inquireMap">
+	<![CDATA[
+	SELECT q_idx,
+	       title,
+	       userid,
+	       writedate,
+	       answer_check
+	FROM (SELECT /*+INDEX_DESC(team_c_inquire ta_xpk_inquire) */
+	             rownum rn,
+	             q_idx,
+	             title,
+	             userid,
+	             writedate,
+	             answer_check
+	      FROM team_c_inquire
+	      WHERE 
+	      ]]>
+		<include refid="criteria"></include>
+	      <![CDATA[
+	      rownum <= #{pageNum} * #{amount}
+	      )
+	WHERE rn > (#{pageNum} -1) * #{amount}
+	]]>
+
+	</select>
+	
+		<select id="getListWithPaging2" resultMap="inquireMap">
+	<![CDATA[
+	SELECT q_idx,
+	       title,
+	       userid,
+	       writedate
+	FROM (SELECT /*+INDEX_DESC(team_c_inquire ta_xpk_inquire) */
+	             rownum rn,
+	             q_idx,
+	             title,
+	             userid,
+	             writedate
+	      FROM team_c_inquire
+	      WHERE product_num = #{product_num}
+	      AND rownum <= #{cri.pageNum} * #{cri.amount}
+	      )WHERE rn > (#{cri.pageNum} -1) * #{cri.amount}
+	]]>
+
+	</select>
+
+	<select id="getTotalCount" resultType="int">
+		select count(*) from
+		team_c_inquire where q_idx > 0
+	</select>
+	
+</mapper>

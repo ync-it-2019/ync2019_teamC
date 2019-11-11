@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import com.ync.project.domain.MemberVO;
-import com.ync.project.front.mapper.MemberMapper;
+import com.ync.project.admin.mapper.MemberMapper;
 import com.ync.project.security.domain.CustomUser;
 
 import lombok.extern.log4j.Log4j;

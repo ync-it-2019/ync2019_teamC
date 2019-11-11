@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ync.project.admin.mapper.ProductMapper">
+
+<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							writer like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+	<resultMap type="com.ync.project.domain.ProductVO" id="productMap">
+		<id property="product_num" column="product_num"/>
+		<result property="product_num" column="product_num"/>
+		<result property="costprice" column="costprice"/>
+		<result property="product_name" column="product_name"/>
+		<result property="theme" column="theme"/>
+		<result property="transportation" column="transportation"/>
+		<result property="itinerary" column="itinerary"/>
+		<result property="hotel_tour" column="hotel_tour"/>
+		<result property="country" column="country"/>
+		<result property="city" column="city"/>
+		<result property="arrival_date" column="arrival_date"/>
+		<result property="departure_date" column="departure_date"/>
+		<result property="main_check" column="main_check"/>
+		<result property="main_img" column="main_img"/>
+		<result property="slide_img1" column="slide_img1"/>
+		<result property="slide_img2" column="slide_img2"/>
+		<result property="slide_img3" column="slide_img3"/>
+		<result property="slide_img4" column="slide_img4"/>
+	</resultMap>
+
+	<select id="getList" resultMap="productMap">
+	<![CDATA[
+		SELECT *
+	    FROM team_c_product 
+	    where product_num > 0 
+		]]>
+	</select>
+	
+	<insert id="insert">
+	INSERT INTO team_c_product (product_num,
+	                           costprice,
+	                           product_name,
+	                           theme,
+	                           transportation,
+	                           itinerary,
+	                           hotel_tour,
+	                           country,
+	                           city,
+	                           arrival_date,
+	                           departure_date,
+	                           main_check,
+	                           main_img,
+	                           slide_img1,
+	                           slide_img2,
+	                           slide_img3,
+	                           slide_img4)
+	                   values (#{product_num},
+	                           #{costprice},
+	                           #{product_name},
+	                           #{theme},
+	                           #{transportation},
+	                           #{itinerary},
+	                           #{hotel_tour},
+	                           #{country},
+	                           #{city},
+	                           #{arrival_date},
+	                           #{departure_date},
+	                           #{main_check},
+	                           #{main_img},
+	                           #{slide_img1},
+	                           #{slide_img2},
+	                           #{slide_img3},
+	                           #{slide_img4})
+	</insert>
+	
+	<select id="read" resultMap="productMap">
+	SELECT *
+	FROM   team_c_product
+	WHERE  product_num = #{product_num}
+	</select>
+	
+	<delete id="delete">
+	DELETE FROM team_c_product 
+	WHERE  product_num = #{product_num}
+	</delete>
+	
+	<update id="update">
+	UPDATE team_c_product
+	set costprice = #{costprice},
+	product_name = #{product_name},
+	theme = #{theme},
+	transportation = #{transportation},
+	itinerary = #{itinerary},
+	hotel_tour = #{hotel_tour},
+	country = #{country},
+	city = #{city},
+	arrival_date = #{arrival_date},
+	departure_date = #{departure_date},
+	main_check = #{main_check},
+	main_img = #{main_img},
+	slide_img1 = #{slide_img1},
+	slide_img2 = #{slide_img2},
+	slide_img3 = #{slide_img3},
+	slide_img4 = #{slide_img4}
+	WHERE product_num = #{product_num}
+	</update>
+	
+	<select id="getListWithPaging" resultMap="productMap">
+	<![CDATA[
+	SELECT product_num,
+	       product_name,
+	       country,
+	       city,
+	       departure_date,
+	       arrival_date,
+	       transportation,
+	       theme,
+	       costprice
+	FROM (SELECT /*+INDEX_DESC(team_c_product ta_xpk_product) */
+	             rownum rn,
+	             product_num,
+	             product_name,
+	             country,
+	             city,
+	             departure_date,
+	             arrival_date,
+	             transportation,
+	             theme,
+	             costprice
+	      FROM team_c_product
+	      WHERE 
+	      ]]>
+		<include refid="criteria"></include>
+	      <![CDATA[
+	      rownum <= #{pageNum} * #{amount}
+	      )
+	WHERE rn > (#{pageNum} -1) * #{amount}
+	]]>
+
+	</select>
+
+	<select id="getTotalCount" resultType="int">
+		select count(*) from
+		team_c_product where product_num > 0
+	</select>
+</mapper>
