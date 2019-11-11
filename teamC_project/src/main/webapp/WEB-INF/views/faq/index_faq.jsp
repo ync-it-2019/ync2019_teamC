@@ -12,12 +12,12 @@
         <title>S Trip you can go everywhere</title>
 
         <!-- Bootstrap Core CSS -->
-        <!--<link href="resources/css/bootstrap3.min.css" rel="stylesheet">-->
+        <link href="resources/css/bootstrap3.min.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
 
         <!-- Custom CSS -->
-				<link rel="stylesheet" href="/resources/css/patros3.css" >
+	<link rel="stylesheet" href="/resources/css/patros3.css" >
 
         <!--faq_css -->
         <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -25,8 +25,6 @@
 
         <script src="/resources/js/jquery.min.js"></script>
     </head>
-
-    <body data-spy="scroll">
   		<!-- Navigation -->
   		<style>
   		.absolute{
@@ -45,34 +43,31 @@
   					<div class="menubar">
   					<li class="absolute"><img src="/resources/img/logo2.png"></li>
   					<ul class="right">
-  					 <li><a href="index.html">HOME</li>
-  					<li><a href="#">국내여행</a>
-  						<ul>
-  							 <li><a href="seoul-i.html">서울</a></li>
-  							 <li><a href="busan-i.html">부산</a></li>
-  							 <li><a href="gyeongju-i.html">경주</a></li>
-  							 <li><a href="jeonju-i.html">전주</a></li>
-  							</ul>
-  					 </li>
-  					 <li><a href="#">아시아</a>
-  											 <ul>
-  													 <li><a href="japan-i.html">일본</a></li>
-  													 <li><a href="china-i.html">중국</a></li>
-  													 <li><a href="tai-i.html">대만</a></li>
-  													 <li><a href="hongkong-i.html">홍콩</a></li>
-  													</ul>
-  												</li>
-  												<li><a href="#">유럽</a>
-  													<ul>
-  															<li><a href="england-i.html">영국</a></li>
-  															<li><a href="ita-i.html">이탈리아</a></li>
-  															<li><a href="france-i.html">프랑스</a></li>
-  															<li><a href="ger-i.html">독일</a></li>
-  														 </ul>
-  													 </li>
-  					<li><a href="shop.html">패키지</a></li>
-  					<li><a href="/faq/index_faq">자주묻는질문</a></li>
-  					<li><a href="login/login">Login</a></li>
+					<li><a href="/">HOME</li>
+					<li><a href="#">국내</a>
+						<ul>
+							<li><a href="/info/seoul-i">서울</a></li>
+							<li><a href="/info/busan-i">부산</a></li>
+							<li><a href="/info/gyeongju-i">경주</a></li>
+							<li><a href="/info/jeonju-i">전주</a></li>
+						</ul></li>
+					<li><a href="#">아시아</a>
+						<ul>
+							<li><a href="/info/japan-i">일본</a></li>
+							<li><a href="/info/china-i">중국</a></li>
+							<li><a href="/info/tai-i">태국</a></li>
+							<li><a href="/info/hongkong-i">홍콩</a></li>
+						</ul></li>
+					<li><a href="#">유럽</a>
+						<ul>
+							<li><a href="/info/england-i">영국</a></li>
+							<li><a href="/info/ita-i">이탈리아</a></li>
+							<li><a href="/info/france-i">프랑스</a></li>
+							<li><a href="/info/ger-i">독일</a></li>
+						</ul></li>
+					<li><a href="/shop/shop">패키지</a></li>
+					<li><a href="/faq/index_faq">자주 묻는 질문</a></li>
+					<li><a href="/login/login">Login</a></li>
   					</ul>
   					</div>
   				</header>

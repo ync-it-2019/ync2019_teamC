@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ync.project.front.mapper.ReviewMapper">
+
+<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							writer like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+	<resultMap type="com.ync.project.domain.ReviewVO" id="reviewMap">
+		<id property="userid" column="userid"/>
+		<result property="review_idx" column="review_idx"/>
+		<result property="title" column="title"/>
+		<result property="writedate" column="writedate"/>
+		<result property="content" column="content"/>
+		<result property="userid" column="userid"/>
+		<result property="product_num" column="product_num"/>
+		<result property="img" column="img"/>
+	</resultMap>
+
+	<select id="getList1" resultMap="reviewMap">
+	<![CDATA[
+		SELECT *
+	    FROM team_c_review 
+	    where review_idx > 0 
+		]]>
+	</select>
+	
+	<insert id="insert">
+	INSERT INTO team_c_review (review_idx,
+	                           title,
+	                           writedate,
+	                           content,
+	                           userid,
+	                           product_num,
+	                           img)
+	                   values (team_c_seq_review.nextval,
+	                           #{title},
+	                           sysdate,
+	                           #{content},
+	                           #{userid},
+	                           #{product_num},
+	                           #{img})
+	</insert>
+	
+	<insert id="insertSelectKey">
+	<selectKey keyProperty="review_idx" order="BEFORE" resultType="long">
+	SELECT team_c_seq_review.nextval FROM dual
+	</selectKey>
+	
+	INSERT INTO team_c_review (review_idx,
+	                           title,
+	                           writedate,
+	                           content,
+	                           userid,
+	                           product_num,
+	                           img)
+	                   values (#{review_idx},
+	                           #{title},
+	                           sysdate,
+	                           #{content},
+	                           #{userid},
+	                           #{product_num},
+	                           #{img})       
+	</insert>
+	
+	<select id="read" resultMap="reviewMap">
+	SELECT *
+	FROM   team_c_review
+	WHERE  review_idx = #{review_idx}
+	</select>
+	
+	<select id="getList2" resultMap="reviewMap">
+	<![CDATA[
+		SELECT *
+	    FROM team_c_review 
+	    where product_num = #{product_num} 
+		]]>
+	</select>
+	
+	<delete id="delete">
+	DELETE FROM team_c_review 
+	WHERE  review_idx = #{review_idx}
+	</delete>
+	
+	<update id="update">
+	UPDATE team_c_review
+	set title = #{title},
+	content = #{content},
+	img = #{img}
+	WHERE review_idx = #{review_idx}
+	</update>
+	
+	<select id="getListWithPaging" resultMap="reviewMap">
+	<![CDATA[
+	SELECT review_idx,
+	       title,
+	       userid,
+	       writedate
+	FROM (SELECT /*+INDEX_DESC(team_c_review ta_xpk_review) */
+	             rownum rn,
+	             review_idx,
+	             title,
+	             userid,
+	             writedate
+	      FROM team_c_review
+	      WHERE product_num = #{product_num}
+	      AND rownum <= #{cri.pageNum} * #{cri.amount}
+	      )WHERE rn > (#{cri.pageNum} -1) * #{cri.amount}
+	]]>
+
+	</select>
+
+	<select id="getTotalCount" resultType="int">
+		select count(*) from
+		team_c_review where review_idx > 0
+	</select>
+</mapper>

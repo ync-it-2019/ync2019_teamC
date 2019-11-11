@@ -434,7 +434,7 @@ public class FrontHomeController {
 	@GetMapping(value = "/restaurant/japan-f")
 	public String japan_restaurant() {
 
-		log.info("Japan-tourlist!");
+		log.info("Japan-restaurant!");
 	
 		return "restaurant/japan-f";
 	}
@@ -543,13 +543,28 @@ public class FrontHomeController {
 	  * @Author		: 이준희
 	  * @프로그램 설명 : call jsp view
 	  */
-	@GetMapping(value = "/login/login")
+//	@GetMapping(value = "/login/login")
+//	
+//	public String get_login() {
+//		
+//		log.info("login");
+//		
+//		return "login/login";
+//	}
 	
-	public String get_login() {
+	/**
+	  * @FileName	: login/register.jsp 호출
+	  * @Date		: 2019. 10. 21. 
+	  * @Author		: 곽우렬
+	  * @프로그램 설명 : call jsp view
+	  */
+	@GetMapping(value = "/login/register")
+	
+	public String get_register() {
 		
-		log.info("login");
+		log.info("register");
 		
-		return "login/login";
+		return "login/register";
 	}
 	/**
 	  * @FileName	: faq/indexfaq.jsp 호출
@@ -571,13 +586,73 @@ public class FrontHomeController {
 	  * @Author		: 이준희
 	  * @프로그램 설명 : call jsp view
 	  */
-	@GetMapping(value = "/shop/shop")
-	
-	public String get_shop() {
+//	@GetMapping(value = "/shop/shop")
+//	public String getshop() {
+//		
+//		log.info("shop");
+//		
+//		return "shop/shop";
+//	}
+	/**
+	  * @FileName	: shop/package1.jsp 호출
+	  * @Date		: 2019. 10. 21. 
+	  * @Author		: 이준희
+	  * @프로그램 설명 : call jsp view
+	  */
+//	@GetMapping(value = "/shop/package1")
+//	public String package1() {
+//		
+//		log.info("package1");
+//		
+//		return "shop/package1";
+//	}
+	/**
+	  * @FileName	: shop/checkout.jsp 호출
+	  * @Date		: 2019. 10. 21. 
+	  * @Author		: 이준희
+	  * @프로그램 설명 : call jsp view
+	  */
+	@GetMapping(value = "/shop/checkout")
+	public String checkout() {
 		
-		log.info("shop");
+		log.info("checkout");
 		
-		return "shop/shop";
+		return "shop/checkout";
 	}
-	
-}
+	/**
+	  * @FileName	: shop/checkout.jsp 호출
+	  * @Date		: 2019. 10. 21. 
+	  * @Author		: 이준희
+	  * @프로그램 설명 : call jsp view
+	  */
+	@GetMapping(value = "/shop/pay")
+	public String pay() {
+		
+		log.info("pay");
+		
+		return "shop/pay";
+	}
+	/**
+	  * @FileName	: shop/ReviewWriteForm.jsp 호출
+	  * @Date		: 2019. 10. 21. 
+	  * @Author		: 이준희
+	  * @프로그램 설명 : call jsp view
+	  */
+	@GetMapping(value ="/shop/review/reviewregister")
+	public String ReviewWriteForm() {
+		log.info("ReviewRegister");
+		return "shop/review/reviewregister";
+	}
+	/**
+	  * @FileName	: shop/QuestionWriteForm.jsp 호출
+	  * @Date		: 2019. 10. 21. 
+	  * @Author		: 이준희
+	  * @프로그램 설명 : call jsp view
+	  */
+	@GetMapping(value ="/shop/QuestionboardWriteForm")
+	public String QuestionWriteForm() {
+		log.info("QuestionboardWriteFrom");
+		return "shop/QuestionboardWriteForm";
+		
+	}
+ }

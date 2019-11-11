@@ -389,6 +389,11 @@ h1.header-w3ls {
 	color: white;
 }
 
+.art-right-w3ls h3 {
+	font-weight: 500;
+	color: white;
+}
+
 button[type=submit] {
 	background: #967c00;
 	outline: none;
