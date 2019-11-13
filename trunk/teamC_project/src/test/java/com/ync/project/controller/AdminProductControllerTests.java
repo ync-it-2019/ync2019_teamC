@@ -67,31 +67,29 @@ public class AdminProductControllerTests {
 
 //	@Test
 //	public void testRegister() throws Exception {
-//
+//		
 //		DateFormat format = new SimpleDateFormat("yyyy-mm-dd");
 //	      String Departure_date = "2020-02-08";
-//	      String Arrival_date = "2020-02-14";
+//	      String Arrival_date = "2020-02-09";
 //	      Date departure_day = format.parse(Departure_date);
 //	      Date arrival_day = format.parse(Arrival_date);
-//		ProductVO product = new ProductVO();
-//		product.setProduct_num(4);
-//		product.setCostprice(4860000);
-//		product.setProduct_name("민이와함께하는 유럽여행");
-//		product.setTheme("테마파크");
-//		product.setTransportation("비행기");
-//		product.setItinerary("6박7일");
-//		product.setCountry("독일");
-//		product.setCity("베를린");
-//		product.setHotel_tour("민이와 함께떠나는 유럽여행 관리자가 강추하는 가이드와 함께 관광지와 놀이공원을"
-//				+ "즐겨 보십시오. 재미없음 ");
+//	      String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/admin/registration")
+//	    		  .param("product_num", 4)
+//	    		  .param("costprice", 100000)
+//	    		  .param("product_name", "사진없는여행")
+//	    		  .param("transportation", "대구버스")
+//	    		  .param("Itinerary", "1박2일"))
+//		product.setCountry("대한민국");
+//		product.setCity("대구");
+//		product.setHotel_tour("메인 이미지와 슬라이드 이미지가없습니다. 이유는 직접 보시라고 이미지를 삭제했습니다. 싫으면 뭐....");
 //		product.setDeparture_date(departure_day);
 //		product.setArrival_date(arrival_day);
 //		product.setMain_check("x");
-//		product.setMain_img("main_img1");
-//		product.setSlide_img1("slide_img1");
-//		product.setSlide_img2("slide_img2");
-//		product.setSlide_img3("sldie_img3");
-//		product.setSlide_img4("slide_img4");
+//		product.setMain_img("main_img4");
+//		product.setSlide_img1("slide4_img1");
+//		product.setSlide_img2("slide4_img2");
+//		product.setSlide_img3("sldie4_img3");
+//		product.setSlide_img4("slide4_img4");
 //		mapper.insert(product);
 //
 //		log.info(product);
