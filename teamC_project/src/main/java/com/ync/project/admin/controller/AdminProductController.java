@@ -30,8 +30,8 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class AdminProductController {
 	
-	@Value("${globalConfig.uploadPath}")
-	private String uploadPath;
+//	@Value("${globalConfig.uploadPath}")
+//	private String uploadPath;
 	
 	private ProductService service;
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -52,7 +52,7 @@ public class AdminProductController {
 		log.info("register: " + product);
 		service.register(product);
 		rttr.addFlashAttribute("result", product.getProduct_num());
-		return "redirect:/admin/registration";
+		return "redirect:/admin/product_manage";
 	}
 	
 	
