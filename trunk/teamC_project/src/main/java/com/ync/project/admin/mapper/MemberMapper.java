@@ -10,8 +10,8 @@ import com.ync.project.domain.ReviewVO;
 
 /**
   * @FileName	: MemberMapper.java
-  * @Date		: 2019. 10. 16. 
-  * @Author		: 정진우
+  * @Date		: 2019. 10. 23. 
+  * @Author		: 곽우렬
   * @프로그램 설명 : 회원 정보 처리용 Mapper interface
   */
 public interface MemberMapper {

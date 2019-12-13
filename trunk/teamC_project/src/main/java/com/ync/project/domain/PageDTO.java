@@ -3,6 +3,12 @@ package com.ync.project.domain;
 import lombok.Getter;
 import lombok.ToString;
 
+/**
+  * @FileName	: PageDTO.java
+  * @Date		: 2019. 11. 2. 
+  * @Author		: 곽우렬
+  * @프로그램 설명 : 페이징 처리를위한 클래스
+  */
 @Getter
 @ToString
 public class PageDTO {

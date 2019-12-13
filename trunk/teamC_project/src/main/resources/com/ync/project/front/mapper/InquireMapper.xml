@@ -50,17 +50,13 @@
 	                           title,
 	                           content,
 	                           userid,
-	                           writedate,
-	                           answer_check,
-	                           answer)
+	                           writedate)
 	                   values (team_c_seq_inquire.nextval,
 	                           #{product_num},
 	                           #{title},
 	                           #{content},
 	                           #{userid},
-	                           sysdate,
-	                           #{answer_check},
-	                           #{answer})
+	                           sysdate)
 	</insert>
 	
 		<insert id="insertSelectKey">
@@ -73,20 +69,16 @@
 	                           title,
 	                           content,
 	                           userid,
-	                           writedate,
-	                           answer_check,
-	                           answer)
+	                           writedate)
 	                   values (#{q_idx},
 	                           #{product_num},
 	                           #{title},
 	                           #{content},
 	                           #{userid},
-	                           sysdate,
-	                           #{answer_check},
-	                           #{answer})       
+	                           sysdate)       
 	</insert>
 	
-	<select id="read" resultMap="inquireMap">
+	<select id="get" resultMap="inquireMap">
 	SELECT *
 	FROM   team_c_inquire
 	WHERE  q_idx = #{q_idx}
@@ -108,8 +100,13 @@
 	<update id="update">
 	UPDATE team_c_inquire
 	set title = #{title},
-	content = #{content},
-	answer_check = #{answer_check},
+	content = #{content}
+	WHERE q_idx = #{q_idx}
+	</update>
+	
+	<update id="update2">
+	UPDATE team_c_inquire
+	set answer_check = #{answer_check},
 	answer = #{answer}
 	WHERE q_idx = #{q_idx}
 	</update>

@@ -8,9 +8,9 @@ import lombok.ToString;
 
 /**
   * @FileName	: Criteria.java
-  * @Date		: 2019. 10. 31. 
+  * @Date		: 2019. 11. 02. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 검색 조건 처리를 위한 Criteria클래스
   */
 @Getter
 @Setter

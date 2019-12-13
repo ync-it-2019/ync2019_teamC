@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.ync.project.domain.ReviewVO;
 import com.ync.project.admin.mapper.ProductMapper;
 import com.ync.project.domain.Criteria;
+import com.ync.project.domain.InquireVO;
 import com.ync.project.domain.ProductVO;
 import com.ync.project.front.mapper.ReviewMapper;
 
@@ -17,7 +18,7 @@ import lombok.extern.log4j.Log4j;
   * @FileName	: ProductServiceImpl.java
   * @Date		: 2019. 11. 1. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 상품 정보 처리용 Service implement
   */
 @Log4j
 @Service
@@ -39,7 +40,7 @@ public class ProductServiceImpl implements ProductService{
 		
 		log.info("register......" + product);
 		
-		mapper.insert(product);
+		mapper.insertSelectKey(product);
 	}
 
 	@Override
@@ -54,6 +55,12 @@ public class ProductServiceImpl implements ProductService{
 	public List<ProductVO> getListWithPaging(Criteria cri) {
 		log.info("get List with criteria: " + cri);
 		return mapper.getListWithPaging(cri);
+	}
+	
+	@Override
+	public List<ProductVO> getListWithPaging2(Criteria cri) {
+		log.info("get List with criteria: " + cri);
+		return mapper.getListWithPaging2(cri);
 	}
 	
 	@Override
@@ -79,7 +86,7 @@ public class ProductServiceImpl implements ProductService{
 		
 		return mapper.delete(product_num) == 1;
 	}
-	
+
 	@Override
 	public int getTotal (Criteria cri) {
 		

@@ -1,6 +1,6 @@
 package com.ync.project.domain;
 
-import java.util.Date;
+import java.sql.Date;
 
 import lombok.Data;
 
@@ -8,7 +8,7 @@ import lombok.Data;
   * @FileName	: ProductVO.java
   * @Date		: 2019. 10. 21. 
   * @Author		: 곽우렬
-  * @프로그램 설명 : 상품 평 VO
+  * @프로그램 설명 : 상품정보 VO
   */
 @Data
 public class ProductVO {

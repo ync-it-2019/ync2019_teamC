@@ -12,7 +12,7 @@ import lombok.Data;
   */
 @Data
 public class InquireVO {
-	private Long q_idx;
+	private long q_idx;
 	private int product_num;
 	private String title;
 	private String content;

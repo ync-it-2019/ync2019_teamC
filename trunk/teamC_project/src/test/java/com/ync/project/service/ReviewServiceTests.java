@@ -18,7 +18,7 @@ import lombok.extern.log4j.Log4j;
   * @FileName	: ReviewServiceTests.java
   * @Date		: 2019. 10. 31. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 상품평 service 테스트
   */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -43,11 +43,11 @@ public class ReviewServiceTests {
 //	public void testRegister() {
 //		
 //		ReviewVO review = new ReviewVO();
-//		review.setTitle("Test_Title13");
-//		review.setContent("Test_content13");
+//		review.setTitle("Test2");
+//		review.setContent("Test_content2");
 //		review.setUserid("msa1587");
-//		review.setProduct_num(1);
-//		review.setImg("img7");
+//		review.setProduct_num(6);
+//		review.setImg("img2");
 //		
 //		service.register(review);
 //		
@@ -63,19 +63,19 @@ public class ReviewServiceTests {
 //	}
 	
 	//목록 테스트2
-	@Test
-	public void testGetList() {
-		
-		//service.getList2(1).forEach(review -> log.info(review));
-		service.getListWithPaging(new Criteria(2, 10), 1).forEach(review -> log.info(review));
-	}
+//	@Test
+//	public void testGetList() {
+//		
+//		//service.getList2(1).forEach(review -> log.info(review));
+//		service.getListWithPaging(new Criteria(2, 10), 1).forEach(review -> log.info(review));
+//	}
 	
 	//조회 테스트1
-//	@Test
-//	public void testGet() {
-//		
-//		log.info(service.get1((long) 52));
-//	}
+	@Test
+	public void testGet() {
+		
+		log.info(service.get((long) 104));
+	}
 	
 	
 	//삭제 테스트

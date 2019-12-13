@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -70,8 +70,16 @@
 						</ul></li>
 					<li><a href="/shop/shop">패키지</a></li>
 					<li><a href="/faq/index_faq">자주 묻는 질문</a></li>
-
-					<li><a href="/login/login">Login</a></li>
+					<sec:authorize access="isAuthenticated()">
+					<sec:authentication property="principal.username" var="user_id" />
+					<li><a href="/front/mypage?userid=${user_id}">마이페이지</a></li>
+					<li><a href="/customLogout">
+					<i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
+					</sec:authorize>
+					<sec:authorize access="isAnonymous()">
+					<li><a href="/login/login">
+					<i class="fa fa-sign-out fa-fw"></i>Login</a></li>
+					</sec:authorize>
 			</ul>
 		</div>
 	</div>
@@ -438,43 +446,29 @@
 					<h3>News</h3>
 				</div>
 				<div class="col-md-6 w3-news-grid1-right">
-					<p>Fusce convallis, ante non sodales dapibus, risus mauris
-						viverra nibh, vel lacinia erat nulla at est. Vestibulum vestibulum
-						risus ac eros luctus, at dapibus libero gravida. Cras euismod,
-						felis non egestas gravida, nisi purus placerat lacus, sed pulvinar
-						ipsum turpis sed risus.</p>
+					<p>최신의 여행정보 뉴스를 업데이트 하는 공간.</p>
 				</div>
 				<div class="clearfix"></div>
 			</div>
 			<div class="w3l-news-bottom">
 				<div class="col-md-7 w3l-news-bottom-left">
 					<div class="w3l-news-bottom-left-info">
-						<h6>
-							<a href="#" data-toggle="modal" data-target="#myModal1">26
-								march 2017</a>
-						</h6>
-						<h3>
-							<a href="#" data-toggle="modal" data-target="#myModal1">Our
-								joyfull trip</a>
-						</h3>
-						<p>Vestibulum vestibulum risus ac eros luctus, at dapibus
-							libero gravida. Cras euismod, felis non egestas gravida, nisi
-							purus placerat lacus, sed pulvinar ipsum turpis sed risus.</p>
+
+					<p>전 세계 24곳의 클럽메드 스키 리조트 중 최상의 설질을 자랑하는 클럽메드 사호로가</p>
+					<p>최근 사호로 리조트가 새 단장을 마쳤다.이번 리노베이션을 통해 세련된 감각의 객실과 메인 레스토랑을 선보인다. </p>
+					<p>홋카이도 토착민 아이누족의 전통 패턴에서 착안한 디자인을 사용한 것이 특징이다.</p>
 					</div>
 				</div>
 				<div class="col-md-5 w3l-news-bottom-right">
-					<img src="/resources/img/news-3.jpg" alt="" />
-					<h6>
-						<a href="#" data-toggle="modal" data-target="#myModal2">26
-							march 2017</a>
-					</h6>
+					<img src="/resources/img/newsletter.jpg" width="472px" height="283px" />
 					<h3>
-						<a href="#" data-toggle="modal" data-target="#myModal2">Our
-							joyfull trip</a>
+						<a href="#" data-toggle="modal" data-target="#myModal2"></a>
 					</h3>
-					<p>Vestibulum vestibulum risus ac eros luctus, at dapibus
-						libero gravida. Cras euismod, felis non egestas gravida, nisi
-						purus placerat lacus, sed pulvinar ipsum turpis sed risus.</p>
+					<h4> 언어를 몰라도 해외 도시의 서점에 가는 이유</h4>
+					<p>	해외 도시를 갈 때면 찾는 곳이 있습니다. 서점입니다. 그 나라 말을 몰라도 시간이 내서 큰 서점을 찾아갑니다. 서점 그 자체가 좋아서이기도 하지만, 서점에서 업무적인 도움을 받을 수 있기 때문입니다.</p>
+ 					<p>첫째, 책은 기획이 한 눈에 보이는 제품이라 제목과 부제, 책 표지만 둘러봐도 새로운 기획의 산물들을 발견할 수 있습니다.</p>
+ 					<p>둘째, 지식 콘텐츠의 글로벌 동향을 어렴풋이 파악할 수 있습니다.</p>
+ 					<p>셋째, 한국에서는 접하기 어려운 정보를 발견할 수도 있습니다.</p>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -483,20 +477,6 @@
 			<!-- Modal1 -->
 			<div class="modal-dialog">
 				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4>Snow tour</h4>
-						<img src="/resources/img/m1.jpg" alt=" " class="img-responsive">
-						<h5>Lorem Ipsum</h5>
-						<p>Lorem Ipsum is simply dummy text of the printing and
-							typesetting industry. Lorem Ipsum has been the industry's
-							standard dummy text ever since the 1500s, when an unknown printer
-							took a galley of type and scrambled it to make a type specimen
-							book. It has survived not only five centuries, but also the leap
-							into electronic typesetting.</p>
-					</div>
-				</div>
 			</div>
 		</div>
 		<!-- //Modal2-->
@@ -508,7 +488,7 @@
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4>Snow tour</h4>
-						<img src="/resources/img/m2.jpg" alt=" " class="img-responsive">
+						<img src="/resources/img/windowf.jpg" alt=" " class="img-responsive">
 						<h5>Lorem Ipsum</h5>
 						<p>Lorem Ipsum is simply dummy text of the printing and
 							typesetting industry. Lorem Ipsum has been the industry's
@@ -649,16 +629,16 @@
 						<a href="/"> Home </a>
 					</ul>
 					<ul class="my-3">
-						<a href="about.html">국내여행</a>
+						<a href="/info/seoul-i">국내</a>
 					</ul>
 					<ul class="mb-3">
-						<a href="services.html">아시아 여행</a>
+						<a href="/info/japan-i">아시아</a>
 					</ul>
 					<ul class="mb-3">
-						<a href="contact.html">패키지 여행</a>
+						<a href="/info/england-i">유럽</a>
 					</ul>
 					<ul>
-						<a href="contact.html">자주 묻는 질문</a>
+						<a href="/shop/shop">패키지</a>
 					</ul>
 				</ul>
 			</div>

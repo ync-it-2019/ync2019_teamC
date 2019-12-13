@@ -11,7 +11,7 @@ import com.ync.project.domain.ReviewVO;
   * @FileName	: ReviewMapper.java
   * @Date		: 2019. 10. 30. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 상품 평 처리용 Mapper interface
   */
 public interface ReviewMapper {
   

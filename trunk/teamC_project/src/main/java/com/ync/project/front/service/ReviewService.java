@@ -11,18 +11,18 @@ import com.ync.project.domain.ReviewVO;
   * @FileName	: ReviewService.java
   * @Date		: 2019. 11. 1. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 상품 평 처리용 Service interface
   */
 public interface ReviewService {
 	public void register(ReviewVO review);
 	
-	public ReviewVO get(Long review_idx);
+	public ReviewVO get(long review_idx);
 	
 	public List<ReviewVO> getList2(int product_num);
 	
 	public boolean modify(ReviewVO review);
 	
-	public boolean remove(Long review_idx);
+	public boolean remove(long review_idx);
 	
 	public List<ReviewVO> getList1();
 

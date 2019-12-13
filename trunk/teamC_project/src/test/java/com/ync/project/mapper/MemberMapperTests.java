@@ -20,7 +20,7 @@ import lombok.extern.log4j.Log4j;
   * @FileName	: MemberMapperTests.java
   * @Date		: 2019. 10. 29. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 회원 mapper테스트
   */
 @RunWith(SpringRunner.class)
 @ContextConfiguration({ "file:src/main/webapp/WEB-INF/spring/root-context.xml" })
@@ -30,16 +30,16 @@ public class MemberMapperTests {
 	@Setter(onMethod_ = @Autowired)
 	private MemberMapper mapper;
 
-//	@Test
-//	public void testRead() {
-//
-//		MemberVO vo = mapper.read("admin23");
-//
-//		log.info(vo);
-//		
-//		vo.getAuthList().forEach(authVO -> log.info(authVO));
-//
-//	}
+	@Test
+	public void testRead() {
+
+		MemberVO vo = mapper.read("user2");
+
+		log.info(vo);
+		
+		vo.getAuthList().forEach(authVO -> log.info(authVO));
+
+	}
 	//리스트출력
 //	@Test
 //	public void testGetList() {
@@ -65,22 +65,22 @@ public class MemberMapperTests {
 //	@Test
 //	public void testDelete() {
 //
-//		log.info("DELETE COUNT: " + mapper.delete("admin19"));
+//		log.info("DELETE COUNT: " + mapper.delete("kang123"));
 //	}
 
 	//수정
-	@Test
-	public void testUpdate() {
-
-		MemberVO member = new MemberVO();
-		member.setUserid("admin1");
-		member.setPhone("010-6907-0416");
-		member.setEmail("gnl7854@naver.com");
-		member.setSex("남자");
-
-		int count = mapper.update(member);
-		log.info("UPDATE COUNT: " + count);
-	}
+//	@Test
+//	public void testUpdate() {
+//
+//		MemberVO member = new MemberVO();
+//		member.setUserid("admin1");
+//		member.setPhone("010-6907-0416");
+//		member.setEmail("gnl7854@naver.com");
+//		member.setSex("남자");
+//
+//		int count = mapper.update(member);
+//		log.info("UPDATE COUNT: " + count);
+//	}
 	
 	//페이징
 //	@Test

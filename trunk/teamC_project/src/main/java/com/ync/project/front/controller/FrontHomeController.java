@@ -7,8 +7,8 @@ import lombok.extern.log4j.Log4j;
 
 /**
   * @FileName	: HomeController.java
-  * @Date		: 2019. 10. 16. 
-  * @Author		: 정진우
+  * @Date		: 2019. 10. 20. 
+  * @Author		: 곽우렬
   * @프로그램 설명 : 메인 페이지 호출용 controller
   */
 
@@ -19,8 +19,8 @@ public class FrontHomeController {
 	/**
 	  * @Method 설명 : front/index.jsp 호출
 	  * @Method Name : home
-	  * @Date : 2019. 10. 16.
-	  * @작성자 : 정진우
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
 	  * @return call jsp view
 	  */
 	@GetMapping(value = "/")
@@ -31,11 +31,13 @@ public class FrontHomeController {
 		return "front/index";
 	}
 	
+
 	/**
-	  * @FileName	: info/seoul-i.jsp 호출
-	  * @Date		: 2019. 10. 20. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 서울 정보 호출
+	  * @Method Name : seoul_info
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/info/seoul-i")
 	public String seoul_info() {
@@ -46,10 +48,11 @@ public class FrontHomeController {
 	}
 	
 	/**
-	  * @FileName	: info/busan-i.jsp 호출
-	  * @Date		: 2019. 10. 20. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 부산 정보 호출
+	  * @Method Name : busan_info
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/info/busan-i")
 	public String busan_info() {
@@ -60,10 +63,11 @@ public class FrontHomeController {
 	}
 	
 	/**
-	  * @FileName	: info/gyeongju-i.jsp 호출
-	  * @Date		: 2019. 10. 20. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 경주 정보 호출
+	  * @Method Name : gyeongju_info
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/info/gyeongju-i")
 	public String gyeongju_info() {
@@ -73,11 +77,13 @@ public class FrontHomeController {
 		return "info/gyeongju-i";
 	}
 	
+
 	/**
-	  * @FileName	: info/jeonju-i.jsp 호출
-	  * @Date		: 2019. 10. 20. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 전주 정보 호출
+	  * @Method Name : jeonju_info
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/info/jeonju-i")
 	public String jeonju_info() {
@@ -87,11 +93,13 @@ public class FrontHomeController {
 		return "info/jeonju-i";
 	}
 	
+
 	/**
-	  * @FileName	: info/japan-i.jsp 호출
-	  * @Date		: 2019. 10. 20. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 일본 정보 호출
+	  * @Method Name : japan_info
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/info/japan-i")
 	public String japan_info() {
@@ -101,11 +109,13 @@ public class FrontHomeController {
 		return "info/japan-i";
 	}
 	
+
 	/**
-	  * @FileName	: info/china-i.jsp 호출
-	  * @Date		: 2019. 10. 20. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 중국 정보 호출
+	  * @Method Name : china_info
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/info/china-i")
 	public String china_info() {
@@ -115,11 +125,13 @@ public class FrontHomeController {
 		return "info/china-i";
 	}
 	
+
 	/**
-	  * @FileName	: info/tai-i.jsp 호출
-	  * @Date		: 2019. 10. 20. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 태국 정보 호출
+	  * @Method Name : tai_info
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/info/tai-i")
 	public String tai_info() {
@@ -129,11 +141,13 @@ public class FrontHomeController {
 		return "info/tai-i";
 	}
 	
+
 	/**
-	  * @FileName	: info/hongkong-i.jsp 호출
-	  * @Date		: 2019. 10. 20. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 홍콩 정보 호출
+	  * @Method Name : hongkong_info
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/info/hongkong-i")
 	public String hongkong_info() {
@@ -143,11 +157,13 @@ public class FrontHomeController {
 		return "info/hongkong-i";
 	}
 	
+
 	/**
-	  * @FileName	: info/england-i.jsp 호출
-	  * @Date		: 2019. 10. 20. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 영국 정보 호출
+	  * @Method Name : england_info
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/info/england-i")
 	public String england_info() {
@@ -157,11 +173,13 @@ public class FrontHomeController {
 		return "info/england-i";
 	}
 	
+
 	/**
-	  * @FileName	: info/ita-i.jsp 호출
-	  * @Date		: 2019. 10. 20. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 이탈리아 정보 호출
+	  * @Method Name : ita_info
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/info/ita-i")
 	public String ita_info() {
@@ -171,11 +189,13 @@ public class FrontHomeController {
 		return "info/ita-i";
 	}
 	
+
 	/**
-	  * @FileName	: info/france-i.jsp 호출
-	  * @Date		: 2019. 10. 20. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 프랑스 정보 호출
+	  * @Method Name : france_info
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/info/france-i")
 	public String france_info() {
@@ -185,11 +205,13 @@ public class FrontHomeController {
 		return "info/france-i";
 	}
 	
+
 	/**
-	  * @FileName	: info/ger-i.jsp 호출
-	  * @Date		: 2019. 10. 20. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 독일 정보 호출
+	  * @Method Name : ger_info
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/info/ger-i")
 	public String ger_info() {
@@ -199,11 +221,13 @@ public class FrontHomeController {
 		return "info/ger-i";
 	}
 	
+
 	/**
-	  * @FileName	: info/seoul-a.jsp 호출
-	  * @Date		: 2019. 10. 20. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 서울 관광지 호출
+	  * @Method Name : seoul_tourlist
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/tourlist/seoul-a")
 	public String seoul_tourlist() {
@@ -213,11 +237,13 @@ public class FrontHomeController {
 		return "tourlist/seoul-a";
 	}
 	
+
 	/**
-	  * @FileName	: info/busan-a.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 부산 관광지 호출
+	  * @Method Name : busan_tourlist
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/tourlist/busan-a")
 	public String busan_tourlist() {
@@ -228,11 +254,13 @@ public class FrontHomeController {
 	}
 	
 	
+
 	/**
-	  * @FileName	: info/gyeongju-a.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 경주 관광지 호출
+	  * @Method Name : gyeongju_tourlist
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/tourlist/gyeongju-a")
 	public String gyeongju_tourlist() {
@@ -242,11 +270,13 @@ public class FrontHomeController {
 		return "tourlist/gyeongju-a";
 	}
 	
+
 	/**
-	  * @FileName	: info/jeonju-a.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 전주 관광지 호출
+	  * @Method Name : jeonju_tourlist
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/tourlist/jeonju-a")
 	public String jeonju_tourlist() {
@@ -256,11 +286,13 @@ public class FrontHomeController {
 		return "tourlist/jeonju-a";
 	}
 	
+
 	/**
-	  * @FileName	: info/japan-a.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 일본 관광지 호출
+	  * @Method Name : japan_tourlist
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/tourlist/japan-a")
 	public String japan_tourlist() {
@@ -270,11 +302,13 @@ public class FrontHomeController {
 		return "tourlist/japan-a";
 	}
 	
+
 	/**
-	  * @FileName	: info/china-a.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 중국 관광지 호출
+	  * @Method Name : china_tourlist
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/tourlist/china-a")
 	public String china_tourlist() {
@@ -284,11 +318,13 @@ public class FrontHomeController {
 		return "tourlist/china-a";
 	}
 	
+
 	/**
-	  * @FileName	: info/tai-a.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 태국 관광지 호출
+	  * @Method Name : tai_tourlist
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/tourlist/tai-a")
 	public String tai_tourlist() {
@@ -298,11 +334,13 @@ public class FrontHomeController {
 		return "tourlist/tai-a";
 	}
 	
+
 	/**
-	  * @FileName	: info/hongkong-a.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 홍콩 관광지 호출
+	  * @Method Name : hongkong_tourlist
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/tourlist/hongkong-a")
 	public String hongkong_tourlist() {
@@ -312,11 +350,13 @@ public class FrontHomeController {
 		return "tourlist/hongkong-a";
 	}
 	
+
 	/**
-	  * @FileName	: info/england-a.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 영국 관광지 호출
+	  * @Method Name : england_tourlist
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/tourlist/england-a")
 	public String england_tourlist() {
@@ -326,11 +366,13 @@ public class FrontHomeController {
 		return "tourlist/england-a";
 	}
 	
+
 	/**
-	  * @FileName	: info/ita-a.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 이탈리아 관광지 호출
+	  * @Method Name : ita_tourlist
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/tourlist/ita-a")
 	public String ita_tourlist() {
@@ -340,11 +382,13 @@ public class FrontHomeController {
 		return "tourlist/ita-a";
 	}
 	
+
 	/**
-	  * @FileName	: info/france-a.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 프랑스 관광지 호출
+	  * @Method Name : france_tourlist
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/tourlist/france-a")
 	public String france_tourlist() {
@@ -354,11 +398,13 @@ public class FrontHomeController {
 		return "tourlist/france-a";
 	}
 	
+
 	/**
-	  * @FileName	: info/ger-a.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 독일 관광지 호출
+	  * @Method Name : ger_tourlist
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/tourlist/ger-a")
 	public String ger_tourlist() {
@@ -368,11 +414,13 @@ public class FrontHomeController {
 		return "tourlist/ger-a";
 	}
 	
+
 	/**
-	  * @FileName	: info/seoul-f.jsp 호출
-	  * @Date		: 2019. 10. 20. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 서울 맛집 호출
+	  * @Method Name : seoul_restaurant
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/restaurant/seoul-f")
 	public String seoul_restaurant() {
@@ -382,11 +430,13 @@ public class FrontHomeController {
 		return "restaurant/seoul-f";
 	}
 	
+
 	/**
-	  * @FileName	: info/busan-f.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 부산 맛집 호출
+	  * @Method Name : busan_restaurant
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/restaurant/busan-f")
 	public String busan_restaurant() {
@@ -397,11 +447,13 @@ public class FrontHomeController {
 	}
 	
 	
+
 	/**
-	  * @FileName	: info/gyeongju-f.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 경주 맛집 호출
+	  * @Method Name : gyeongju_restaurant
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/restaurant/gyeongju-f")
 	public String gyeongju_restaurant() {
@@ -411,11 +463,13 @@ public class FrontHomeController {
 		return "restaurant/gyeongju-f";
 	}
 	
+
 	/**
-	  * @FileName	: info/jeonju-f.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 전주 맛집 호출
+	  * @Method Name : jeonju_restaurant
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/restaurant/jeonju-f")
 	public String jeonju_restaurant() {
@@ -425,11 +479,13 @@ public class FrontHomeController {
 		return "restaurant/jeonju-f";
 	}
 	
+
 	/**
-	  * @FileName	: info/japan-f.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 일본 맛집 호출
+	  * @Method Name : japan_restaurant
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/restaurant/japan-f")
 	public String japan_restaurant() {
@@ -439,11 +495,13 @@ public class FrontHomeController {
 		return "restaurant/japan-f";
 	}
 	
+
 	/**
-	  * @FileName	: info/china-f.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 중국 맛집 호출
+	  * @Method Name : china_restaurant
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/restaurant/china-f")
 	public String china_restaurant() {
@@ -453,11 +511,13 @@ public class FrontHomeController {
 		return "restaurant/china-f";
 	}
 	
+
 	/**
-	  * @FileName	: info/tai-a.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 태국 맛집 호출
+	  * @Method Name : tai_restaurant
+	  * @Date : 2019. 10. 20.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/restaurant/tai-f")
 	public String tai_restaurant() {
@@ -467,11 +527,13 @@ public class FrontHomeController {
 		return "restaurant/tai-f";
 	}
 	
+
 	/**
-	  * @FileName	: info/hongkong-f.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 홍콩 맛집 호출
+	  * @Method Name : hongkong_restaurant
+	  * @Date : 2019. 10. 21.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/restaurant/hongkong-f")
 	public String hongkong_restaurant() {
@@ -481,11 +543,13 @@ public class FrontHomeController {
 		return "restaurant/hongkong-f";
 	}
 	
+
 	/**
-	  * @FileName	: info/england-f.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 영국 맛집 호출
+	  * @Method Name : england_restaurant
+	  * @Date : 2019. 10. 21.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/restaurant/england-f")
 	public String england_restaurant() {
@@ -495,11 +559,13 @@ public class FrontHomeController {
 		return "restaurant/england-f";
 	}
 	
+
 	/**
-	  * @FileName	: info/ita-f.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 이탈리아 맛집 호출
+	  * @Method Name : ita_restaurant
+	  * @Date : 2019. 10. 21.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/restaurant/ita-f")
 	public String ita_restaurant() {
@@ -509,11 +575,13 @@ public class FrontHomeController {
 		return "restaurant/ita-f";
 	}
 	
+
 	/**
-	  * @FileName	: info/france-f.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 프랑스 맛집 호출
+	  * @Method Name : france_restaurant
+	  * @Date : 2019. 10. 21.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/restaurant/france-f")
 	public String france_restaurant() {
@@ -523,11 +591,13 @@ public class FrontHomeController {
 		return "restaurant/france-f";
 	}
 	
+
 	/**
-	  * @FileName	: info/ger-f.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 독일 맛집 호출
+	  * @Method Name : ger_restaurant
+	  * @Date : 2019. 10. 21.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/restaurant/ger-f")
 	public String ger_restaurant() {
@@ -536,27 +606,14 @@ public class FrontHomeController {
 	
 		return "restaurant/ger-f";
 	}
-	
+		
+
 	/**
-	  * @FileName	: login/login.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 이준희
-	  * @프로그램 설명 : call jsp view
-	  */
-//	@GetMapping(value = "/login/login")
-//	
-//	public String get_login() {
-//		
-//		log.info("login");
-//		
-//		return "login/login";
-//	}
-	
-	/**
-	  * @FileName	: login/register.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 곽우렬
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 회원가입 호출
+	  * @Method Name : get_register
+	  * @Date : 2019. 10. 21.
+	  * @작성자 : 곽우렬
+	  * @return
 	  */
 	@GetMapping(value = "/login/register")
 	
@@ -566,11 +623,14 @@ public class FrontHomeController {
 		
 		return "login/register";
 	}
+
+
 	/**
-	  * @FileName	: faq/indexfaq.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 이준희
-	  * @프로그램 설명 : call jsp view
+	  * @Method 설명 : 자주 묻는 질문 호출
+	  * @Method Name : get_indexfaq
+	  * @Date : 2019. 10. 21.
+	  * @작성자 : 이준희
+	  * @return
 	  */
 	@GetMapping(value = "/faq/index_faq")
 	
@@ -580,79 +640,5 @@ public class FrontHomeController {
 		
 		return "faq/index_faq";
 	}
-	/**
-	  * @FileName	: shop/shop.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 이준희
-	  * @프로그램 설명 : call jsp view
-	  */
-//	@GetMapping(value = "/shop/shop")
-//	public String getshop() {
-//		
-//		log.info("shop");
-//		
-//		return "shop/shop";
-//	}
-	/**
-	  * @FileName	: shop/package1.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 이준희
-	  * @프로그램 설명 : call jsp view
-	  */
-//	@GetMapping(value = "/shop/package1")
-//	public String package1() {
-//		
-//		log.info("package1");
-//		
-//		return "shop/package1";
-//	}
-	/**
-	  * @FileName	: shop/checkout.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 이준희
-	  * @프로그램 설명 : call jsp view
-	  */
-	@GetMapping(value = "/shop/checkout")
-	public String checkout() {
-		
-		log.info("checkout");
-		
-		return "shop/checkout";
-	}
-	/**
-	  * @FileName	: shop/checkout.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 이준희
-	  * @프로그램 설명 : call jsp view
-	  */
-	@GetMapping(value = "/shop/pay")
-	public String pay() {
-		
-		log.info("pay");
-		
-		return "shop/pay";
-	}
-	/**
-	  * @FileName	: shop/ReviewWriteForm.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 이준희
-	  * @프로그램 설명 : call jsp view
-	  */
-	@GetMapping(value ="/shop/review/reviewregister")
-	public String ReviewWriteForm() {
-		log.info("ReviewRegister");
-		return "shop/review/reviewregister";
-	}
-	/**
-	  * @FileName	: shop/QuestionWriteForm.jsp 호출
-	  * @Date		: 2019. 10. 21. 
-	  * @Author		: 이준희
-	  * @프로그램 설명 : call jsp view
-	  */
-	@GetMapping(value ="/shop/QuestionboardWriteForm")
-	public String QuestionWriteForm() {
-		log.info("QuestionboardWriteFrom");
-		return "shop/QuestionboardWriteForm";
-		
-	}
+
  }

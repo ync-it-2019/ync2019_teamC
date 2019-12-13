@@ -19,10 +19,10 @@ import lombok.extern.log4j.Log4j;
 
 
 /**
-  * @FileName	: AdminProductControllerTests.java
+  * @FileName	: FrontProductControllerTests.java
   * @Date		: 2019. 11. 1. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 상품 테스트
   */
 @RunWith(SpringJUnit4ClassRunner.class)
 
@@ -110,17 +110,49 @@ public class FrontProductControllerTests {
 //	}
 
 	//페이징
+//	@Test
+//	public void testListPaging() throws Exception {
+//
+//		log.info(mockMvc.perform(
+//				MockMvcRequestBuilders.get("/shop/review")
+//				.param("pageNum", "2")
+//				.param("amount", "10")
+//				.param("product_num", "2"))
+//				.andReturn()
+//				.getModelAndView()
+//				.getModelMap());
+//	}
+	
+//	@Test
+//	public void testRegister() throws Exception {
+//
+//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/shop/review/reviewregister")
+//				.param("title", "Test4")
+//				.param("content", "testcontent4")
+//				.param("userid", "kwr123")
+//				.param("product_num", "6")
+//				.param("img", "img4-1"))
+//				.andReturn().getModelAndView().getViewName();
+//
+//		log.info("resultPage");
+//
+//	}
+	
 	@Test
-	public void testListPaging() throws Exception {
+	public void testRegister() throws Exception {
 
-		log.info(mockMvc.perform(
-				MockMvcRequestBuilders.get("/shop/review")
-				.param("pageNum", "2")
-				.param("amount", "10")
-				.param("product_num", "1"))
-				.andReturn()
-				.getModelAndView()
-				.getModelMap());
+		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/shop/inquire/inquireregister")
+				.param("title", "Test2")
+				.param("content", "testcontent2")
+				.param("userid", "kwr123")
+				.param("product_num", "6")
+				.param("img", "img1")
+				.param("answer_check", "x")
+				.param("answer", ""))
+				.andReturn().getModelAndView().getViewName();
+
+		log.info("resultPage");
+
 	}
 
 }

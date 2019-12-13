@@ -14,6 +14,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import lombok.extern.log4j.Log4j;
 
+/**
+  * @FileName	: MemberTests.java
+  * @Date		: 2019. 11. 06. 
+  * @Author		: 곽우렬
+  * @프로그램 설명 : 회원 권한 기능
+  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({ "file:src/main/webapp/WEB-INF/spring/root-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/security-context.xml" })

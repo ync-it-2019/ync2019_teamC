@@ -1,68 +1,204 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
-<title>1대1게시판 등록</title>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script type="text/javascript" src="/test/2979/js/jquery.raty.js"></script>
-<style type="text/css">
-p {
-	width: 600px;
-	text-align: right;
-}
-
-table tbody tr th {
-	background-color: gray;
-}
-
-</style>
-
-<script type="text/javascript">
-	function goUrl(url) {
-		location.href=url;
-	}
-	function boardWriteCheck() {
-		var form = document.boardWriteForm;
-		return true;
-	}
-
-</script>
-<script type="text/javascript">
-</script>
+<title>Modern an Admin Panel Category Flat Bootstarp Resposive Website Template | Basic_tables :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom-Files -->
+<link rel="stylesheet" href="/resources/css/bootstrap2.css">
+ <!-- Bootstrap Core CSS -->
+<link href="/resources/css/a-bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="/resources/css/style2.css" type="text/css" media="all" />
+<!-- Custom CSS -->
+<link href="/resources/css/a-style.css" rel='stylesheet' type='text/css' />
+<link href="/resources/css/font-awesome.css" rel="stylesheet">
+<!-- jQuery -->
+<script src="/resources/js/jquery.min.js"></script>
+<!----webfonts--->
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+<!---//webfonts--->
+<!-- Bootstrap Core JavaScript -->
+<script src="/resources/js/bootstrap.min.js"></script>
+<!-- font-awesome-icons -->
+<link href="/resources/css/font-awesome2.css" rel="stylesheet">
+<!-- //font-awesome-icons -->
+<!-- /Fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700"
+	rel="stylesheet">
+<!-- //Fonts -->
+<link rel="stylesheet"
+	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
+	<div class="main-sec inner-page">
+		<!-- //header -->
+		<header class="py-sm-3 pt-3 pb-2" id="home">
+<style>
+.absolute {
+	position: absolute;
+}
 
-	<h2 align="center"> 상품평 등록하기</h2>
-	<form name="boardWriteForm" action="boardProcess.jsp" method="post" onsubmit="return boardWriteCheck();">
-	<input type="hidden" name="mode" value="W" />
-	<table border="1" summary="게시판 등록 폼" align="center">
-		<colgroup>
-			<col width="100" />
-			<col width="500" />
-		</colgroup>
-		<tbody>
-			<tr>
-				<th align="center">제목</th>
-				<td><input type="text" /></td>
-			</tr>
-			<tr>
-				<th align="center">작성자</th>
-				<td><input type="text" /></td>
-			</tr>
-				<td colspan="2"><textarea rows="10" cols="100"></textarea></td>
-			</tr>
-		</tbody>
-	</table>
-	<p >
-		<input type="button" value="목록" onclick="goUrl('packge1.html');" />
-		<input  type="submit" value="글쓰기" onclick="goUrl('QuestionboardWrite.html');" />
-	</p>
-	</form>
+.right {
+	float: right;
+}
+</style>
+			<!-- nav -->
+			<div class="menubar">
+				<li class="absolute"><img src="/resources/img/logo2.png"></li>
+				<ul class="right">
+					<li><a href="/">HOME</li>
+					<li><a href="#">국내</a>
+						<ul>
+							<li><a href="/info/seoul-i">서울</a></li>
+							<li><a href="/info/busan-i">부산</a></li>
+							<li><a href="/info/gyeongju-i">경주</a></li>
+							<li><a href="/info/jeonju-i">전주</a></li>
+						</ul></li>
+					<li><a href="#">아시아</a>
+						<ul>
+							<li><a href="/info/japan-i">일본</a></li>
+							<li><a href="/info/china-i">중국</a></li>
+							<li><a href="/info/tai-i">태국</a></li>
+							<li><a href="/info/hongkong-i">홍콩</a></li>
+						</ul></li>
+					<li><a href="#">유럽</a>
+						<ul>
+							<li><a href="/info/england-i">영국</a></li>
+							<li><a href="/info/ita-i">이탈리아</a></li>
+							<li><a href="/info/france-i">프랑스</a></li>
+							<li><a href="/info/ger-i">독일</a></li>
+						</ul></li>
+					<li><a href="/shop/shop">패키지</a></li>
+					<li><a href="/faq/index_faq">자주 묻는 질문</a></li>
+
+					<sec:authorize access="isAuthenticated()">
+					<sec:authentication property="principal.username" var="user_id" />
+					<li><a href="/front/mypage?userid=${user_id}">마이페이지</a></li>
+					<li><a href="/customLogout">
+					<i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
+					</sec:authorize>
+					<sec:authorize access="isAnonymous()">
+					<li><a href="/login/login">
+					<i class="fa fa-sign-out fa-fw"></i>Login</a></li>
+					</sec:authorize>
+				</ul>
+			</div>
+			<!-- //nav -->
+
+		</header>
+		<!-- //header -->
+		</div>
+		<div id="wrapper">
+        <div id="page-wrapper">
+        <div class="graphs">
+        <div class="col-md-8 inbox_right">
+        	<div class="Compose-Message">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                    <form role ="form" action = "/shop/review/reviewregister" method = "post" enctype="multipart/form-data">
+                    <input type="hidden" name="img" value="">
+	        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        <div class="alert alert-info">
+                          	  글쓰기
+                        </div>
+                        <hr>
+                        <label>제목</label>
+                        <input type="text" class="form-control1 control3" name = "title">
+                        <label>상품번호</label>
+                        <input type="text" class="form-control1 control3" name = "product_num"
+                        value ='${manage.product_num}' readonly="readonly">
+                        <label>작성자</label>
+                        <input type="text" class="form-control1 control3" name = "userid"
+                        value = '<sec:authentication property = "principal.username"/>' readonly="readonly">
+                        <label>내용</label>
+                        <textarea rows="6" class="form-control1 control2" name = "content"></textarea>
+                        <label>이미지</label>
+                        <input type="file" class="form-control1 control2" name="uploadFile">
+                        <hr>
+                        <button type = "submit" class="btn btn-warning btn-warng1">등록</button>
+                      <a href="#" class="btn btn-success btn-warng1"><span class="glyphicon glyphicon-tags tag_01"></span>취소</a>
+                       <input type="hidden" name="${_csrf.parameterName}"
+                        value="${_csrf.token}" /> 
+                      </form>
+                    </div>
+                 </div>
+              </div>
+         </div>
+         <div class="clearfix"> </div>
+   </div>
+   </div>
+      
+      <!-- /#page-wrapper -->
+   </div>
+   	<!-- footer -->
+	<footer class="py-sm-5">
+		<div class="container">
+			<div class="row py-5">
+				<!-- footer grid1 -->
+				<div class="col-lg-4 text-center">
+					<h2>
+						<a class="text-white" href="/"> <img
+							src="/resources/img/logo2.png" class="img-fluid"
+							alt="Responsive image" />
+						</a>
+					</h2>
+				</div>
+				<!-- //footer gri12 -->
+				<!-- footer grid2 -->
+				<div class="col-lg-4  footv3-left text-center my-lg-0 my-5">
+					<h3 class="mb-3">Get In Touch</h3>
+					<div class="fv3-contact mt-3"><p>S TRIP you can travel anywhere</p></div>
+					<div class="fv3-contact mt-3">
+						<p>90 Street, City, State 34789.</p>
+					</div>
+					<div class="fv3-contact my-3">
+						<p>+456 123 7890</p>
+					</div>
+					<div class="fv3-contact">
+						<p>
+							<a href="mailto:example@email.com">info@example.com</a>
+						</p>
+					</div>
+				</div>
+				<!-- //footer grid2 -->
+				<!-- footer grid3 -->
+				<div class="col-lg-4  footv3-left text-center">
+					<h3 class="mb-3">Navigation</h3>
+					<ul class="list-agileits">
+						<ul class="mb-3">
+							<a style="color:white" href="/">Home</a>
+						</ul>
+						<ul class="mb-3">
+							<a style="color:white" href="/info/seoul-i">국내</a></a>
+						</ul>
+						<ul class="mb-3">
+							<a style="color:white" href"/info/japan-i">아시아</a>
+						</ul>
+						<ul class="mb-3">
+							<a style="color:white"href="/info/england-i">유럽</a>
+						</ul>
+						<ul class="mb-3">
+							<a style="color:white" href="/shop/shop">패키지</a>
+						</ul>
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+		<!-- //footer container -->
+	</footer>
+
 </body>
 </html>
-
-

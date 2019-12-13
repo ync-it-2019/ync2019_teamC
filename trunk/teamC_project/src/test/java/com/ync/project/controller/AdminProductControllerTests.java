@@ -1,8 +1,9 @@
 package com.ync.project.controller;
 
+import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +29,7 @@ import lombok.extern.log4j.Log4j;
   * @FileName	: AdminProductControllerTests.java
   * @Date		: 2019. 11. 1. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 관리자 상품 테스트
   */
 @RunWith(SpringJUnit4ClassRunner.class)
 
@@ -65,36 +66,36 @@ public class AdminProductControllerTests {
 //				.getModelMap());
 //	}
 
-//	@Test
-//	public void testRegister() throws Exception {
-//		
-//		DateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+	@Test
+	public void testRegister() throws Exception {
+		
+		DateFormat format = new SimpleDateFormat("yyyy-mm-dd");
 //	      String Departure_date = "2020-02-08";
 //	      String Arrival_date = "2020-02-09";
-//	      Date departure_day = format.parse(Departure_date);
+//	      Date departure_day = 2020-02-08;
 //	      Date arrival_day = format.parse(Arrival_date);
-//	      String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/admin/registration")
-//	    		  .param("product_num", 4)
-//	    		  .param("costprice", 100000)
-//	    		  .param("product_name", "사진없는여행")
-//	    		  .param("transportation", "대구버스")
-//	    		  .param("Itinerary", "1박2일"))
-//		product.setCountry("대한민국");
-//		product.setCity("대구");
-//		product.setHotel_tour("메인 이미지와 슬라이드 이미지가없습니다. 이유는 직접 보시라고 이미지를 삭제했습니다. 싫으면 뭐....");
-//		product.setDeparture_date(departure_day);
-//		product.setArrival_date(arrival_day);
-//		product.setMain_check("x");
-//		product.setMain_img("main_img4");
-//		product.setSlide_img1("slide4_img1");
-//		product.setSlide_img2("slide4_img2");
-//		product.setSlide_img3("sldie4_img3");
-//		product.setSlide_img4("slide4_img4");
-//		mapper.insert(product);
-//
-//		log.info(product);
-//
-//	}
+
+	      String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/admin/registration")
+	    		  .param("product_name", "사진없는여행")
+//	    		  .param("departure_date", "departure_day")
+//	    		  .param("arrival_date", "arrival_day")
+	    		  .param("transportation", "대구버스")
+	    		  .param("theme", "테마파크")
+	    		  .param("costprice", "100000")
+	    		  .param("itinerary", "1박2일")
+	    		  .param("hotel_tour", "메인 이미지와 슬라이드 이미지가없습니다. 이유는 직접 보시라고 이미지를 삭제했습니다. 싫으면 뭐....")
+	    		  .param("main_check", "x")
+	    		  .param("country", "대한민국")
+	    		  .param("city", "대구")
+	    		  .param("main_img", "x")
+	    		  .param("slide_img1", "x")
+	    		  .param("slide_img2", "x")
+	    		  .param("slide_img3", "x")
+	    		  .param("slide_img4", "x"))
+	    		  .andReturn().getModelAndView().getViewName();
+		log.info("resultPage");
+
+	}
 
 //	@Test
 //	public void tetGet() throws Exception {
@@ -131,16 +132,17 @@ public class AdminProductControllerTests {
 //		log.info(resultPage);
 //	}
 
-	@Test
-	public void testListPaging() throws Exception {
-
-		log.info(mockMvc.perform(
-				MockMvcRequestBuilders.get("/admin/product_manage")
-				.param("pageNum", "1")
-				.param("amount", "10"))
-				.andReturn()
-				.getModelAndView()
-				.getModelMap());
-	}
+	//페이징
+//	@Test
+//	public void testListPaging() throws Exception {
+//
+//		log.info(mockMvc.perform(
+//				MockMvcRequestBuilders.get("/admin/product_manage")
+//				.param("pageNum", "1")
+//				.param("amount", "10"))
+//				.andReturn()
+//				.getModelAndView()
+//				.getModelMap());
+//	}
 
 }

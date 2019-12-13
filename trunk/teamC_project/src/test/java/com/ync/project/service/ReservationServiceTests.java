@@ -17,10 +17,10 @@ import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 /**
-  * @FileName	: ReviewServiceTests.java
+  * @FileName	: ReservationServiceTests.java
   * @Date		: 2019. 10. 31. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 구매관리 service 테스트
   */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -56,12 +56,12 @@ public class ReservationServiceTests {
 //	}
 	
 	//목록 테스트
-//	@Test
-//	public void testGetList() {
-//		
-//		service.getList().forEach(review -> log.info(review));
-//		//service.getListWithPaging(new Criteria(1, 10)).forEach(board -> log.info(board));
-//	}
+	@Test
+	public void testGetList() {
+		
+		//service.getList().forEach(review -> log.info(review));
+		service.getListWithPaging(new Criteria(1, 10)).forEach(board -> log.info(board));
+	}
 	
 	//조회 테스트
 //	@Test
@@ -92,4 +92,6 @@ public class ReservationServiceTests {
 //		reservation.setContent("Test_content2");
 //		log.info("MODIFY RESULT: " + service.modify(reservation));
 //	}
+	
+	
 }

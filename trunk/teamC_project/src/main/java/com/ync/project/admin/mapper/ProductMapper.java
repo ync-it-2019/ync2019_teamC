@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 import com.ync.project.domain.Criteria;
+import com.ync.project.domain.InquireVO;
 import com.ync.project.domain.ProductVO;
 import com.ync.project.domain.ReviewVO;
 
@@ -11,7 +12,7 @@ import com.ync.project.domain.ReviewVO;
   * @FileName	: ProductMapper.java
   * @Date		: 2019. 11. 01. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 상품 정보 처리용 Mapper interface
   */
 public interface ProductMapper {
   
@@ -23,6 +24,7 @@ public interface ProductMapper {
    
    public ProductVO read(int product_num);
    
+   
    public int delete(int product_num);
    
    public int update(ProductVO product);
@@ -33,5 +35,7 @@ public interface ProductMapper {
  	public void updateReplyCnt(@Param("product_num") Long bno, @Param("amount") int amount);
 
 	public List<ProductVO> getListWithPaging(Criteria cri);
+	
+	public List<ProductVO> getListWithPaging2(Criteria cri);
  	}
 

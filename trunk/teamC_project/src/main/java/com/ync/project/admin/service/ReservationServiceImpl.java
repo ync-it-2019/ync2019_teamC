@@ -17,7 +17,7 @@ import lombok.extern.log4j.Log4j;
   * @FileName	: ReviewServiceImpl.java
   * @Date		: 2019. 11. 1. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 구매 정보 처리용 Service implement
   */
 @Log4j
 @Service
@@ -86,5 +86,11 @@ public class ReservationServiceImpl implements ReservationService{
 		log.info("get total count");
 		
 		return mapper.getTotalCount(cri);
+	}
+
+	@Override
+	public ReservationVO get2(int product_num) {
+		// TODO Auto-generated method stub
+		return mapper.get2(product_num);
 	}
 }

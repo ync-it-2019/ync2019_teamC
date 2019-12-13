@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ync.project.front.mapper.MypageMapper">
+
+<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							writer like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+	
+	
+	
+	<resultMap type="com.ync.project.domain.MypageVO" id="MypageMap">
+		<id property="userid" column="userid"/>
+		<result property="re_idx" column="re_idx"/>
+		<result property="product_name" column="product_name"/>
+		<result property="arrival_date" column="arrival_date"/>
+		<result property="status" column="status"/>
+		<result property="price" column="price"/>
+	</resultMap>
+
+
+
+	<select id="getReservation" resultMap="MypageMap">
+	<![CDATA[
+SELECT R.RE_IDX,R.USERID,R.STATUS,P.PRODUCT_NAME,P.DEPARTURE_DATE,P.ARRIVAL_DATE,R.PRICE
+FROM TEAM_C_PRODUCT P , TEAM_C_RESERVATION R
+WHERE P.PRODUCT_NUM = R.PRODUCT_NUM
+AND R.USERID = #{user_id}
+order by p.departure_date
+		]]>
+	</select>
+
+
+
+
+	<select id="getListWithPaging" resultMap="MypageMap">
+	<![CDATA[
+	      SELECT R.RE_IDX, R.STATUS, P.PRODUCT_NAME, P.DEPARTURE_DATE, P.ARRIVAL_DATE, R.PRICE, R.USERID
+		  FROM (SELECT /*+INDEX_DESC(team_c_reservation TA_XIF3_RESERVATION) */
+	             rownum rn,
+	             re_idx,
+	             status,
+	             price,
+	             PRODUCT_NUM,
+	             USERID
+	             from team_c_reservation
+	      WHERE rownum <= #{cri.pageNum} * #{cri.amount}
+	      	     ) r ,team_c_product p
+	      where r.userid = #{userid}
+	      and r.product_num = p.PRODUCT_NUM      
+	      and rn > (#{cri.pageNum} -1) * #{cri.amount}
+	      ORDER BY P.DEPARTURE_DATE
+	]]>
+	</select>
+	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from
+		team_c_reservation where re_idx > 0
+	</select>	
+	
+</mapper>

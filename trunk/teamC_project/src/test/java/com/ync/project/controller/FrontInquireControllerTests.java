@@ -18,10 +18,10 @@ import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 /**
-  * @FileName	: InquireControllerTests.java
+  * @FileName	: FrontInquireControllerTests.java
   * @Date		: 2019. 11. 01. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 상품문의 테스트
   */
 @RunWith(SpringJUnit4ClassRunner.class)
 

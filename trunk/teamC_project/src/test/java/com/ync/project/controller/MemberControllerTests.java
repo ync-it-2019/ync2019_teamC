@@ -21,7 +21,7 @@ import lombok.extern.log4j.Log4j;
   * @FileName	: MemberControllerTests.java
   * @Date		: 2019. 10. 28. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 회원 테스트
   */
 @RunWith(SpringJUnit4ClassRunner.class)
 
@@ -58,21 +58,21 @@ public class MemberControllerTests {
 //				.getModelMap());
 //	}
 
-//	@Test
-//	public void testRegister() throws Exception {
-//
-//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/login/register")
-//				.param("userid", "admin01")
-//				.param("name", "관리자1")
-//				.param("userpw", "1111")
-//				.param("phone", "010-1111-1111")
-//				.param("email", "admin1@gmail.com")
-//				.param("sex", "여자"))
-//				.andReturn().getModelAndView().getViewName();
-//
-//		log.info("resultPage");
-//
-//	}
+	@Test
+	public void testRegister() throws Exception {
+
+		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/login/register")
+				.param("userid", "wl6321")
+				.param("name", "곽우렬")
+				.param("userpw", "1111")
+				.param("phone", "010-1111-1111")
+				.param("email", "wl6321@gmail.com")
+				.param("sex", "남자"))
+				.andReturn().getModelAndView().getViewName();
+
+		log.info("resultPage");
+
+	}
 
 //	@Test
 //	public void tetGet() throws Exception {
@@ -109,16 +109,16 @@ public class MemberControllerTests {
 //		log.info(resultPage);
 //	}
 
-	@Test
-	public void testListPaging() throws Exception {
-
-		log.info(mockMvc.perform(
-				MockMvcRequestBuilders.get("/admin/management")
-				.param("pageNum", "1")
-				.param("amount", "10"))
-				.andReturn()
-				.getModelAndView()
-				.getModelMap());
-	}
+//	@Test
+//	public void testListPaging() throws Exception {
+//
+//		log.info(mockMvc.perform(
+//				MockMvcRequestBuilders.get("/admin/management")
+//				.param("pageNum", "1")
+//				.param("amount", "10"))
+//				.andReturn()
+//				.getModelAndView()
+//				.getModelMap());
+//	}
 
 }

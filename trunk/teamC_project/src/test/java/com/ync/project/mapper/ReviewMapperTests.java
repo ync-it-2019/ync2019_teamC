@@ -21,7 +21,7 @@ import lombok.extern.log4j.Log4j;
   * @FileName	: ReviewMapperTests.java
   * @Date		: 2019. 10. 30. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 상품평 mapper 테스트
   */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -47,7 +47,7 @@ public class ReviewMapperTests {
 //		review.setTitle("Test1");
 //		review.setContent("Test1");
 //		review.setUserid("kwr123");
-//		review.setProduct_num(1);
+//		review.setProduct_num(6);
 //		review.setImg("img1");
 //
 //		mapper.insert(review);
@@ -72,15 +72,15 @@ public class ReviewMapperTests {
 //	}
 
 	//조회1
-//	@Test
-//	public void testRead() {
-//
-//		// 존재하는 게시물 번호로 테스트
-//		ReviewVO review = mapper.read1((long) 43);
-//
-//		log.info(review);
-//
-//	}
+	@Test
+	public void testRead() {
+
+		// 존재하는 게시물 번호로 테스트
+		ReviewVO review = mapper.read((long) 104);
+
+		log.info(review);
+
+	}
 	
 //	//목록2
 //	@Test
@@ -111,21 +111,21 @@ public class ReviewMapperTests {
 //	}
 
 	//페이징
-	@Test
-	public void testPaging() {
-
-		Criteria cri = new Criteria();
-		
-	    //10개씩 3페이지 
-	    cri.setPageNum(1);
-	    cri.setAmount(10);
-
-
-		List<ReviewVO> list = mapper.getListWithPaging(cri, 1);
-
-		list.forEach(review -> log.info(review));
-
-	}
+//	@Test
+//	public void testPaging() {
+//
+//		Criteria cri = new Criteria();
+//		
+//	    //10개씩 3페이지 
+//	    cri.setPageNum(1);
+//	    cri.setAmount(10);
+//
+//
+//		List<ReviewVO> list = mapper.getListWithPaging(cri, 1);
+//
+//		list.forEach(review -> log.info(review));
+//
+//	}
 	
 //	  @Test
 //	  public void testSearch() {

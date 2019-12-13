@@ -69,7 +69,7 @@
 	                           slide_img2,
 	                           slide_img3,
 	                           slide_img4)
-	                   values (#{product_num},
+	                   values (team_c_seq_product.nextval,
 	                           #{costprice},
 	                           #{product_name},
 	                           #{theme},
@@ -88,6 +88,47 @@
 	                           #{slide_img4})
 	</insert>
 	
+	<insert id="insertSelectKey">
+	<selectKey keyProperty="product_num" order="BEFORE" resultType="int">
+	SELECT team_c_seq_product.nextval FROM dual
+	</selectKey>
+	
+	INSERT INTO team_c_product (product_num,
+	                           costprice,
+	                           product_name,
+	                           theme,
+	                           transportation,
+	                           itinerary,
+	                           hotel_tour,
+	                           country,
+	                           city,
+	                           arrival_date,
+	                           departure_date,
+	                           main_check,
+	                           main_img,
+	                           slide_img1,
+	                           slide_img2,
+	                           slide_img3,
+	                           slide_img4)
+	                   values (team_c_seq_product.nextval,
+	                           #{costprice},
+	                           #{product_name},
+	                           #{theme},
+	                           #{transportation},
+	                           #{itinerary},
+	                           #{hotel_tour},
+	                           #{country},
+	                           #{city},
+	                           #{arrival_date},
+	                           #{departure_date},
+	                           #{main_check},
+	                           #{main_img},
+	                           #{slide_img1},
+	                           #{slide_img2},
+	                           #{slide_img3},
+	                           #{slide_img4})       
+	</insert>
+	
 	<select id="read" resultMap="productMap">
 	SELECT *
 	FROM   team_c_product
@@ -100,23 +141,24 @@
 	</delete>
 	
 	<update id="update">
+	
 	UPDATE team_c_product
 	set costprice = #{costprice},
-	product_name = #{product_name},
-	theme = #{theme},
-	transportation = #{transportation},
-	itinerary = #{itinerary},
-	hotel_tour = #{hotel_tour},
-	country = #{country},
-	city = #{city},
-	arrival_date = #{arrival_date},
-	departure_date = #{departure_date},
-	main_check = #{main_check},
-	main_img = #{main_img},
-	slide_img1 = #{slide_img1},
-	slide_img2 = #{slide_img2},
-	slide_img3 = #{slide_img3},
-	slide_img4 = #{slide_img4}
+	    product_name = #{product_name},
+	    theme = #{theme},
+	    transportation = #{transportation},
+	    itinerary = #{itinerary},
+	    hotel_tour = #{hotel_tour},
+	    country = #{country},
+	    city = #{city},
+	    arrival_date = #{arrival_date},
+	    departure_date = #{departure_date},
+	    main_check = #{main_check},
+	    main_img = #{main_img},
+	    slide_img1 = #{slide_img1},
+	    slide_img2 = #{slide_img2},
+	    slide_img3 = #{slide_img3},
+	    slide_img4 = #{slide_img4}
 	WHERE product_num = #{product_num}
 	</update>
 	
@@ -142,6 +184,38 @@
 	             transportation,
 	             theme,
 	             costprice
+	      FROM team_c_product
+	      WHERE 
+	      ]]>
+		<include refid="criteria"></include>
+	      <![CDATA[
+	      rownum <= #{pageNum} * #{amount}
+	      )
+	WHERE rn > (#{pageNum} -1) * #{amount}
+	]]>
+
+	</select>
+	
+		<select id="getListWithPaging2" resultMap="productMap">
+	<![CDATA[
+	SELECT product_num,
+	       product_name,
+	       costprice,
+	       main_img,
+	       slide_img1,
+	       slide_img2,
+	       slide_img3,
+	       slide_img4
+	FROM (SELECT /*+INDEX_DESC(team_c_product ta_xpk_product) */
+	             rownum rn,
+	             product_num,
+	             product_name,
+	             costprice,
+	             main_img,
+	             slide_img1,
+	             slide_img2,
+	             slide_img3,
+	             slide_img4
 	      FROM team_c_product
 	      WHERE 
 	      ]]>

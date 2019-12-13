@@ -12,16 +12,18 @@ import com.ync.project.domain.ReviewVO;
   * @FileName	: InquireService.java
   * @Date		: 2019. 11. 1. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 상품문의 처리용 Service interface
   */
 public interface InquireService {
 	public void register(InquireVO inquire);
 	
-	public InquireVO get(Long q_idx);
+	public InquireVO get(long q_idx);
 	
 	public boolean modify(InquireVO inquire);
 	
-	public boolean remove(Long q_idx);
+	public boolean modify2(InquireVO inquire);
+	
+	public boolean remove(long q_idx);
 	
 	public List<InquireVO> getList1();
 	

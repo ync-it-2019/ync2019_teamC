@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html lang="kr">
 
@@ -91,7 +91,16 @@
 					<li><a href="/shop/shop">패키지</a></li>
 					<li><a href="/faq/index_faq">자주 묻는 질문</a></li>
 
-					<li><a href="/login/login">Login</a></li>
+					<sec:authorize access="isAuthenticated()">
+					<sec:authentication property="principal.username" var="user_id" />
+					<li><a href="/front/mypage?userid=${user_id}">마이페이지</a></li>
+					<li><a href="/customLogout">
+					<i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
+					</sec:authorize>
+					<sec:authorize access="isAnonymous()">
+					<li><a href="/login/login">
+					<i class="fa fa-sign-out fa-fw"></i>Login</a></li>
+					</sec:authorize>
 				</ul>
 			</div>
 			<!-- //nav -->
@@ -114,78 +123,42 @@
 		<div class="container py-xl-4 py-lg-2">
 			<!-- tittle heading -->
 			<h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
-				<span>예약하기</span>
+				<span>구매하기</span>
 			</h3>
 			<div class="container" align="right">
-				<input type="text" name="daterange" value="10/15/2019 - 10/20/2019" />
-
-				<script>
-					$(function() {
-						$('input[name="daterange"]')
-								.daterangepicker(
-										{
-											opens : 'left'
-										},
-										function(start, end, label) {
-											console
-													.log("A new date selection was made: "
-															+ start
-																	.format('YYYY-MM-DD')
-															+ ' to '
-															+ end
-																	.format('YYYY-MM-DD'));
-										});
-					});
-				</script>
 			</div>
 			<!-- //tittle heading -->
 			<div class="checkout-left">
 				<div class="address_form_agile mt-sm-5 mt-4">
-					<h4 class="mb-sm-4 mb-3">고객 정보 입력</h4>
-					<form action="payment.html" method="post"
-						class="creditly-card-form agileinfo_form">
+					<h4 class="mb-sm-4 mb-3">구매정보</h4>
+					<form role ="form" action = "/shop/checkout" method = "post">
 						<div class="creditly-wrapper wthree, w3_agileits_wrapper">
 							<div class="information-wrapper">
 								<div class="first-row">
-									<!-- 한글 이름-->
 									<div class="controls form-group">
-										<input class="billing-address-name form-control" type="text"
-											name="name" placeholder="한글 성명" required="">
-									</div>
-									<!-- 한글 이름-->
-									<!-- 여권 영문 이름-->
-									<div class="controls form-group">
-										<input type="text" class="form-control" type="text"
-											name="name" placeholder="여권 성명" required="">
-									</div>
-									<!-- 성별 -->
-
-									<input type="checkbox" name="chk_info" value="sex" checked>남자
-									<input type="checkbox" name="chk_info" value="sex">여자 <br />
-									<!-- 생년월일 -->
-									<div class="controls form-group">
-										<input type="number" class="form-control" placeholder="생년월일"
-											name="birth" required="">
+										<label>상품번호</label>
+                        <input type="text" class="form-control1 control3" name = "product_num"
+                        value ='${manage.product_num}' readonly="readonly">
 									</div>
 									<div class="controls form-group">
-										<input type="text" class="form-control" placeholder="email"
-											name="email" required="">
+									<label>구매자 ID</label>
+                        <input type="text" class="form-control1 control3" name = "userid"
+                        value = '<sec:authentication property = "principal.username"/>' readonly="readonly">
 									</div>
 									<div class="controls form-group">
-										<input type="number" class="form-control"
-											placeholder="phonenumber" name="phone" required="">
+									<label>가격</label>
+                        <input type="text" class="form-control1 control3" name = "price"
+                        value ='${manage.costprice }' readonly="readonly">
 									</div>
+									<div class="checkout-right-basket">
+                        <button type = "submit">구매하기</button>
+                        </div>
 								</div>
 							</div>
 						</div>
+						<input type="hidden" name="${_csrf.parameterName}"
+                        value="${_csrf.token}" />
 					</form>
-					<div class="checkout-right-basket">
-						<button type="button" name="button"
-							style="background-color: black">
-							<a href="/shop/pay.html">결제하기</a>
-						</button>
-						<span class="far fa-hand-point-right"></span> </a>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -235,19 +208,19 @@
 					<h3 class="mb-3">Navigation</h3>
 					<ul class="list-agileits">
 						<ul class="mb-3">
-							<a href="index.html">Home</a>
+							<a style="color:white" href="/">Home</a>
 						</ul>
 						<ul class="mb-3">
-							<a href="about.html">국내여행</a>
+							<a style="color:white" href="/info/seoul-i">국내</a></a>
 						</ul>
 						<ul class="mb-3">
-							<a href="services.html">아시아 여행</a>
+							<a style="color:white" href"/info/japan-i">아시아</a>
 						</ul>
 						<ul class="mb-3">
-							<a href="contact.html">패키지 여행</a>
+							<a style="color:white"href="/info/england-i">유럽</a>
 						</ul>
 						<ul class="mb-3">
-							<a href="contact.html">FAQ</a>
+							<a style="color:white" href="/shop/shop">패키지</a>
 						</ul>
 					</ul>
 				</div>
@@ -278,7 +251,7 @@
 	<!-- //nav smooth scroll -->
 
 	<!-- cart-js -->
-	<script src="resources/js/minicart.js"></script>
+	<script src="/resources/js/minicart.js"></script>
 	<script>
 		paypals.minicarts.render(); //use only unique class names other than paypals.minicarts.Also Replace same class name in css and minicart.min.js
 
@@ -373,12 +346,12 @@
 	<!-- //quantity -->
 
 	<!-- smoothscroll -->
-	<script src="resources/js/SmoothScroll.min.js"></script>
+	<script src="/resources/js/SmoothScroll.min.js"></script>
 	<!-- //smoothscroll -->
 
 	<!-- start-smooth-scrolling -->
-	<script src="resources/js/move-top.js"></script>
-	<script src="resources/js/easing.js"></script>
+	<script src="/resources/js/move-top.js"></script>
+	<script src="/resources/js/easing.js"></script>
 	<script>
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event) {
@@ -394,7 +367,7 @@
 
 	<!-- smooth-scrolling-of-move-up -->
 	<!-- for bootstrap working -->
-	<script src="resources/js/bootstrap.js"></script>
+	<script src="/resources/js/bootstrap.js"></script>
 	<!-- //for bootstrap working -->
 	<!-- //js-files -->
 	<script type="text/javascript"

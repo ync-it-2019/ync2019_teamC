@@ -28,7 +28,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      <!-- Navigation -->
      <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
          <div class="navbar-header">
-             <a class="navbar-brand" href="management.html"><img src="/resources/img/logo2.png"></a>
+             <a class="navbar-brand" href="/"><img src="/resources/img/logo2.png"></a>
          </div>
          <!-- /.navbar-header -->
          <ul class="nav navbar-nav navbar-right">
@@ -59,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                          <a href="/admin/inquire">상품문의 관리</a>
                      </li>
                      <li>
-                         <a href="/admin/subscriber">예약/구매 관리</a>
+                         <a href="/admin/subscriber">구매 관리</a>
                          <!-- /.nav-second-level -->
                      </li>
                  </ul>
@@ -91,7 +91,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<tbody>
 							<c:forEach items="${manage}" var="manage">
 						<tr>
-						<td><c:out value="${manage.product_num}"/></td>
+						<td><a style="color:black" href='/admin/productget?product_num=<c:out value="${manage.product_num }" />'>
+						<c:out value="${manage.product_num}"/></a></td>
 						<td><c:out value="${manage.product_name}"/></td>
 						<td><c:out value="${manage.country}"/></td>
 						<td><c:out value="${manage.city}"/></td>
