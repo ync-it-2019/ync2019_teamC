@@ -15,7 +15,7 @@ import lombok.extern.log4j.Log4j;
   * @FileName	: ReviewServiceImpl.java
   * @Date		: 2019. 11. 1. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 상품 평 처리용 Service implement
   */
 @Log4j
 @Service
@@ -55,7 +55,7 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 	
 	@Override
-	public ReviewVO get(Long review_idx) {
+	public ReviewVO get(long review_idx) {
 		
 		log.info("get......" + review_idx);
 		
@@ -71,7 +71,7 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 	
 	@Override
-	public boolean remove(Long review_idx) {
+	public boolean remove(long review_idx) {
 		
 		log.info("remove...." + review_idx);
 		
@@ -90,4 +90,5 @@ public class ReviewServiceImpl implements ReviewService{
 	public List<ReviewVO> getList2(int product_num) {
 		// TODO Auto-generated method stub
 		return mapper.getList2(product_num);
-	}}
+	}
+	}

@@ -17,7 +17,7 @@ import lombok.extern.log4j.Log4j;
   * @FileName	: InquireServiceImpl.java
   * @Date		: 2019. 11. 1. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 회원 정보 처리용 Service implement
   */
 @Log4j
 @Service
@@ -71,11 +71,11 @@ public class InquireServiceImpl implements InquireService{
 	}
 	
 	@Override
-	public InquireVO get(Long q_idx) {
+	public InquireVO get(long q_idx) {
 		
 		log.info("get......" + q_idx);
 		
-		return mapper.read(q_idx);
+		return mapper.get(q_idx);
 	}
 	
 	@Override
@@ -87,7 +87,7 @@ public class InquireServiceImpl implements InquireService{
 	}
 	
 	@Override
-	public boolean remove(Long q_idx) {
+	public boolean remove(long q_idx) {
 		
 		log.info("remove...." + q_idx);
 		
@@ -100,5 +100,13 @@ public class InquireServiceImpl implements InquireService{
 		log.info("get total count");
 		
 		return mapper.getTotalCount(cri);
+	}
+
+	@Override
+	public boolean modify2(InquireVO inquire) {
+		
+		log.info("modify......" + inquire);
+		
+		return mapper.update2(inquire) == 1;
 	}
 }

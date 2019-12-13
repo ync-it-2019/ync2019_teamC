@@ -19,10 +19,10 @@ import lombok.extern.log4j.Log4j;
 
 
 /**
-  * @FileName	: AdminInquireControllerTests.java
+  * @FileName	: AdminReservationControllerTests.java
   * @Date		: 2019. 11. 1. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 관리자화면 상품 구매관리 테스트
   */
 @RunWith(SpringJUnit4ClassRunner.class)
 

@@ -50,7 +50,10 @@
                   </a>
                </h3>
             </div>
-         </div>
+			<div id="homebtn">
+			<a href="/"><button>HOME</button></a>
+			</div>
+		</div>
          <div class="art-left-w3ls">
             <h1 class="header-w3ls">Strip 로그인해서</h1>
             <h1 class="header-w3ls"> 더 많은 정보를 </h1>

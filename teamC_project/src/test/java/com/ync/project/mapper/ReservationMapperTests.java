@@ -24,7 +24,7 @@ import lombok.extern.log4j.Log4j;
   * @FileName	: ReservationMapperTests.java
   * @Date		: 2019. 11. 1. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 구매관리 mapper테스트
   */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -37,10 +37,10 @@ public class ReservationMapperTests {
 	private ReservationMapper mapper;
 	
 	//목록
-	@Test
-	public void testGetList() {
-		mapper.getList().forEach(reservation -> log.info(reservation));
-	}
+//	@Test
+//	public void testGetList() {
+//		mapper.getList().forEach(reservation -> log.info(reservation));
+//	}
 
 	//등록
 //	@Test
@@ -118,7 +118,7 @@ public class ReservationMapperTests {
 
 		List<ReservationVO> list = mapper.getListWithPaging(cri);
 
-		list.forEach(review -> log.info(review));
+		list.forEach(reservation -> log.info(reservation));
 
 	}
 	

@@ -20,7 +20,7 @@ import lombok.extern.log4j.Log4j;
   * @FileName	: InquireServiceTests.java
   * @Date		: 2019. 10. 31. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 상품 문의 service 테스트
   */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -66,18 +66,18 @@ public class InquireServiceTests {
 //	}
 	
 	//목록 테스트2
-	@Test
-	public void testGetList() {
-		
-		//service.getList().forEach(inquire -> log.info(inquire));
-		service.getListWithPaging2(new Criteria(1, 10), 1).forEach(inquire -> log.info(inquire));
-	}
+//	@Test
+//	public void testGetList() {
+//		
+//		//service.getList().forEach(inquire -> log.info(inquire));
+//		service.getListWithPaging2(new Criteria(1, 10), 1).forEach(inquire -> log.info(inquire));
+//	}
 	
 	//조회 테스트
 //	@Test
 //	public void testGet() {
 //		
-//		log.info(service.get((long) 4));
+//		log.info(service.get((long) 43));
 //	}
 	
 	//삭제 테스트
@@ -102,4 +102,19 @@ public class InquireServiceTests {
 //		inquire.setContent("Test_content2");
 //		log.info("MODIFY RESULT: " + service.modify(review));
 //	}
+	
+	//답변 수정/등록 테스트
+	@Test
+	public void testUpdate() {
+		
+		InquireVO inquire = service.get((long) 52);
+		
+		if (inquire == null) {
+			return;
+		}
+		
+		inquire.setAnswer_check("o");
+		inquire.setAnswer("답변이 등록 되었습니다.789");
+		log.info("MODIFY RESULT: " + service.modify2(inquire));
+	}
 }

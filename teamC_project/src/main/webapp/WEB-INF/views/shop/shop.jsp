@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html lang="kr">
 
@@ -15,8 +16,8 @@
 <!-- Custom-Files -->
 <link rel="stylesheet" href="/resources/css/bootstrap2.css">
 <!-- Bootstrap-Core-CSS -->
-<link rel="stylesheet" href="/resources/css/style2.css" type="text/css"
-	media="all" />
+<link rel="stylesheet" href="/resources/css/style2.css" type="text/css" media="all" />
+<link href="/resources/css/a-bootstrap.min.css" rel='stylesheet' type='text/css' />
 <!-- Style-CSS -->
 <!-- font-awesome-icons -->
 <link href="/resources/css/font-awesome2.css" rel="stylesheet">
@@ -26,6 +27,11 @@
 	href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700"
 	rel="stylesheet">
 <!-- //Fonts -->
+<link rel="stylesheet"
+	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
 	<div class="main-sec inner-page">
@@ -69,7 +75,16 @@
 					<li><a href="/shop/shop">패키지</a></li>
 					<li><a href="/faq/index_faq">자주 묻는 질문</a></li>
 
-					<li><a href="/login/login">Login</a></li>
+						<sec:authorize access="isAuthenticated()">
+					<sec:authentication property="principal.username" var="user_id" />
+					<li><a href="/front/mypage?userid=${user_id}">마이페이지</a></li>
+					<li><a href="/customLogout">
+					<i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
+					</sec:authorize>
+					<sec:authorize access="isAnonymous()">
+					<li><a href="/login/login">
+					<i class="fa fa-sign-out fa-fw"></i>Login</a></li>
+					</sec:authorize>
 				</ul>
 			</div>
 			<!-- //nav -->
@@ -82,401 +97,152 @@
 	<section class="banner-bottom py-5">
 		<div class="container py-5">
 			<!--/row-->
-			<h4><c:out value="${shop1.theme}"/></h4>
-			<div class="row shop-wthree-info text-center">
-			    <div class="col-lg-3 shop-info-grid text-center mt-4">
-			        <div class="product-shoe-info shoe">
-			            <div class="men-thumb-item">
-			                 <a href='/shop/package?product_num=<c:out value="${shop1.product_num}"/>'>
-			                 <img src="/resources/img/package1.png" class="img-fluid"></a>
-			            </div>
-			            <div class="item-info-product">
-			                <a href='/shop/package?product_num=<c:out value="${shop1.product_num}"/>'>
-			                <c:out value="${shop1.product_name}"/></a>
-			                <div class="product_price">
-			                        <span class="money">￦<c:out value="${shop1.costprice}"/></span>
-			                </div>
-			                
-			            </div>
-			        </div>
-			</div>
-				<div class="col-lg-3 shop-info-grid text-center mt-4">
-					<div class="product-shoe-info shoe">
-						<div class="men-thumb-item">
-							<img src="/resources/img/package2.png" class="img-fluid" alt="">
-						</div>
-						<div class="item-info-product">
-						<c:out value="${shop2.product_name}"/>
-
-							<div class="product_price">
-								<div class="grid-price">
-									<span class="money">￦<c:out value="${shop2.costprice}"/></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 shop-info-grid text-center mt-4">
-					<div class="product-shoe-info shoe">
-						<div class="men-thumb-item">
-							<img src="/resources/img/package3.png" class="img-fluid" alt="">
-
-						</div>
-						<div class="item-info-product">
-						<c:out value="${shop3.product_name}"/>
-
-							<div class="product_price">
-								<div class="grid-price">
-									<span class="money">￦<c:out value="${shop3.costprice}"/></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 shop-info-grid text-center mt-4">
-					<div class="product-shoe-info shoe">
-						<div class="men-thumb-item">
-							<img src="/resources/img/package4.png" class="img-fluid" alt="">
-
-						</div>
-						<div class="item-info-product">
-						<c:out value="${shop4.product_name}"/>
-
-							<div class="product_price">
-								<div class="grid-price">
-									<span class="money">￦<c:out value="${shop4.costprice}"/></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				</div>
-			<br>
-			<!--//row-->
-			<!--/row1-->
-			<h4><c:out value="${shop2.theme}"/></h4>
-			<div class="row shop-wthree-info text-center">
-				<div class="col-lg-3 shop-info-grid text-center mt-4">
-					<div class="product-shoe-info shoe">
-						<div class="men-thumb-item">
-							<img src="/resources/img/package5.png" class="img-fluid" alt="">
-
-						</div>
-						<div class="item-info-product">
-							<h4>
-								<a href="single.html">LA다저스 </a>
-							</h4>
-
-							<div class="product_price">
-								<div class="grid-price">
-									<span class="money">￦5,629,000</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 shop-info-grid text-center mt-4">
-					<div class="product-shoe-info shoe">
-						<div class="men-thumb-item">
-							<img src="/resources/img/package6.png" class="img-fluid" alt="">
-
-						</div>
-						<div class="item-info-product">
-							<h4>
-								<a href="single.html">텍사스 레인저스</a>
-							</h4>
-
-							<div class="product_price">
-								<div class="grid-price">
-									<span class="money">￦5,629,000</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 shop-info-grid text-center mt-4">
-					<div class="product-shoe-info shoe">
-						<div class="men-thumb-item">
-							<img src="/resources/img/package7.png" class="img-fluid" alt="">
-
-						</div>
-						<div class="item-info-product">
-							<h4>
-								<a href="single.html">보스턴 레드삭스</a>
-							</h4>
-
-							<div class="product_price">
-								<div class="grid-price">
-									<span class="money">￦5,629,000</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 shop-info-grid text-center mt-4">
-					<div class="product-shoe-info shoe">
-						<div class="men-thumb-item">
-							<img src="/resources/img/package8.png" class="img-fluid" alt="">
-
-						</div>
-						<div class="item-info-product">
-							<h4>
-								<a href="single.html">뉴욕 양키스</a>
-							</h4>
-
-							<div class="product_price">
-								<div class="grid-price">
-									<span class="money">￦5,629,000</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-			</div>
-			<br>
-
-			<!--//row1-->
-			<!--/row2-->
-			<h4><c:out value="${shop4.theme}"/></h4>
-			<div class="row shop-wthree-info text-center mb-5">
-				<div class="col-lg-3 shop-info-grid text-center mt-4">
-					<div class="product-shoe-info shoe">
-						<div class="men-thumb-item">
-							<img src="/resources/img/package9.jpg" class="img-fluid" alt="">
-
-						</div>
-						<div class="item-info-product">
-							<h4>
-								<a href="single.html">유니버셜 스튜디오</a>
-							</h4>
-
-							<div class="product_price">
-								<div class="grid-price">
-									<span class="money">￦4,359,000</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 shop-info-grid text-center mt-4">
-					<div class="product-shoe-info shoe">
-						<div class="men-thumb-item">
-							<img src="/resources/img/package10.png" class="img-fluid" alt="">
-
-						</div>
-						<div class="item-info-product">
-							<h4>
-								<a href="single.html">롯데월드</a>
-							</h4>
-
-							<div class="product_price">
-								<div class="grid-price">
-									<span class="money">￦409,000</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="col-lg-3 shop-info-grid text-center mt-4">
-					<div class="product-shoe-info shoe">
-						<div class="men-thumb-item">
-							<img src="/resources/img/package11.jpg" class="img-fluid" alt="">
-
-						</div>
-						<div class="item-info-product">
-							<h4>
-								<a href="single.html">디즈니랜드 도쿄 </a>
-							</h4>
-
-							<div class="product_price">
-								<div class="grid-price">
-									<span class="money">￦4,359,000</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 shop-info-grid text-center mt-4">
-					<div class="product-shoe-info shoe">
-						<div class="men-thumb-item">
-							<img src="/resources/img/package12.png" class="img-fluid" alt="">
-
-						</div>
-						<div class="item-info-product">
-							<h4>
-								<a href="single.html">에버랜드 </a>
-							</h4>
-
-							<div class="product_price">
-								<div class="grid-price">
-									<span class="money">￦409,000</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!--//row-->
-			</div>
-			<br>
-
-			<!--//row1-->
-			<!--/row2-->
-			<h4>TV/영화 여행</h4>
-			<div class="row shop-wthree-info text-center mb-5">
-				<div class="col-lg-3 shop-info-grid text-center mt-4">
-					<div class="product-shoe-info shoe">
-						<div class="men-thumb-item">
-							<img src="/resources/img/package13.jpg" class="img-fluid" alt="">
-
-						</div>
-						<div class="item-info-product">
-							<h4>
-								<a href="single.html">천사와 악마</a>
-							</h4>
-
-							<div class="product_price">
-								<div class="grid-price">
-									<span class="money">￦3,249,000</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 shop-info-grid text-center mt-4">
-					<div class="product-shoe-info shoe">
-						<div class="men-thumb-item">
-							<img src="/resources/img/package14.jpg" class="img-fluid" alt="">
-
-						</div>
-						<div class="item-info-product">
-							<h4>
-								<a href="single.html">해리포터</a>
-							</h4>
-
-							<div class="product_price">
-								<div class="grid-price">
-									<span class="money">￦1,689,000</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="col-lg-3 shop-info-grid text-center mt-4">
-					<div class="product-shoe-info shoe">
-						<div class="men-thumb-item">
-							<img src="/resources/img/package15.jpg" class="img-fluid" alt="">
-
-						</div>
-						<div class="item-info-product">
-							<h4>
-								<a href="single.html">다빈치 코드</a>
-							</h4>
-
-							<div class="product_price">
-								<div class="grid-price">
-									<span class="money">￦2,239,000</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 shop-info-grid text-center mt-4">
-					<div class="product-shoe-info shoe">
-						<div class="men-thumb-item">
-							<img src="/resources/img/package16.jpg" class="img-fluid" alt="">
-
-						</div>
-						<div class="item-info-product">
-							<h4>
-								<a href="single.html">라라랜드 </a>
-							</h4>
-
-							<div class="product_price">
-								<div class="grid-price">
-									<span class="money">￦2,219,000</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!--//row-->
-			</div>
+			<h4>패키지 상품</h4>
 		</div>
+		<div class="row shop-wthree-info text-center">
+					<c:forEach items="${shop}" var="shop">
+					<div class="col-md-3 shop-info-grid text-center mt-4">
+						<div class="product-shoe-info shoe">
+							<div class="men-thumb-item">
+								<a style="color:black" href='/shop/package?product_num=<c:out value="${shop.product_num}"/>'>
+								
+			                <img src="/resources/upload/${shop.main_img}" width=200px, height=200px></a>
+
+							</div>
+							<div class="item-info-product">
+								<h4>
+									<a href="single.html"><c:out value="${shop.product_name}"/></a>
+								</h4>
+
+								<div class="product_price">
+									<div class="grid-price">
+										<span class="money"><c:out value="${shop.costprice}"/></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			        </c:forEach>
+
+
+
+				</div>
 	</section>
-</body>
-<!-- footer -->
-<style media="screen">
-.footing {
-	color: #fff;
-}
-</style>
-<footer class="py-sm-5">
-	<div class="container">
-		<div class="row py-5">
-			<!-- footer grid1 -->
-			<div class="col-lg-4 text-center">
-				<h2>
-					<a class="text-white" href="/"> <img
-						src="/resources/img/logo2.png" class="img-fluid"
-						alt="Responsive image" />
-					</a>
-				</h2>
-			</div>
-			<!-- //footer gri12 -->
-			<!-- footer grid2 -->
-			<div class="col-lg-4  footv3-left text-center my-lg-0 my-5">
-				<h3 class="mb-3">Get In Touch</h3>
-				<div class="footing">
-					S TRIP you can travel anywhere
-					</p>
+       <center>
+        <ul class="pagination pagination-lg">
+        <c:if test="${pageMaker.prev}">
+          <li class="paginate_button previous">
+          <a href="${pageMaker.startPage -1}"><<</a></li>
+          </c:if>
+          <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+          <li class="paginate_button ${pageMaker.cri.pageNum == num ? "active":""}">
+          <a href="${num}">${num}</a></li>
+          </c:forEach>
+          <c:if test="${pageMaker.next}">
+          <li class="paginate_button next">
+          <a href="${pageMaker.endPage +1}">>></a></li>
+          </c:if>
+        </ul>
+        </center>
+        <form id='actionForm' action="/shop/shop" method='get'>
+        <input type='hidden' name='pageNum' value = '${pageMaker.cri.pageNum}'>
+        <input type='hidden' name='amount' value= '${pageMaker.cri.amount}'>
+        </form>
+          
+            <!-- 버튼 영역 --> 
+       <!-- //게시판 목록 영역 -->
+
+	<!-- footer -->
+	<footer class="py-sm-5">
+		<div class="container">
+			<div class="row py-5">
+				<!-- footer grid1 -->
+				<div class="col-lg-4 text-center">
+					<h2>
+						<a class="text-white" href="/"> <img
+							src="/resources/img/logo2.png" class="img-fluid"
+							alt="Responsive image" />
+						</a>
+					</h2>
 				</div>
-				<div class="fv3-contact mt-3">
-					<p>90 Street, City, State 34789.</p>
+				<!-- //footer gri12 -->
+				<!-- footer grid2 -->
+				<div class="col-lg-4  footv3-left text-center my-lg-0 my-5">
+					<h3 class="mb-3">Get In Touch</h3>
+					<div class="fv3-contact mt-3">
+					<p>S TRIP you can travel anywhere
+					</p></div>
+					<div class="fv3-contact mt-3">
+						<p>90 Street, City, State 34789.</p>
+					</div>
+					<div class="fv3-contact my-3">
+						<p>+456 123 7890</p>
+					</div>
+					<div class="fv3-contact">
+						<p>
+							<a href="mailto:example@email.com">info@example.com</a>
+						</p>
+					</div>
 				</div>
-				<div class="fv3-contact my-3">
-					<p>+456 123 7890</p>
+				<!-- //footer grid2 -->
+				<!-- footer grid3 -->
+				<div class="col-lg-4  footv3-left text-center">
+					<h3 class="mb-3">Navigation</h3>
+					<ul class="list-agileits">
+						<ul class="mb-3">
+							<a style="color:white" href="/">Home</a>
+						</ul>
+						<ul class="mb-3">
+							<a style="color:white" href="/info/seoul-i">국내</a></a>
+						</ul>
+						<ul class="mb-3">
+							<a style="color:white" href"/info/japan-i">아시아</a>
+						</ul>
+						<ul class="mb-3">
+							<a style="color:white"href="/info/england-i">유럽</a>
+						</ul>
+						<ul class="mb-3">
+							<a style="color:white" href="/shop/shop">패키지</a>
+						</ul>
+					</ul>
 				</div>
-				<div class="fv3-contact">
-					<p>
-						<a href="mailto:example@email.com">info@example.com</a>
-					</p>
-				</div>
-			</div>
-			<!-- //footer grid2 -->
-			<!-- footer grid3 -->
-			<div class="col-lg-4  footv3-left text-center">
-				<h3 class="mb-3">Navigation</h3>
-				<ul class="list-agileits">
-					<ul class="mb-3">
-						<a href="index.html">Home</a>
-					</ul>
-					<ul class="mb-3">
-						<a href="about.html">국내여행</a>
-					</ul>
-					<ul class="mb-3">
-						<a href="services.html">아시아 여행</a>
-					</ul>
-					<ul class="mb-3">
-						<a href="contact.html">패키지 여행</a>
-					</ul>
-					<ul class="mb-3">
-						<a href="contact.html">FAQ</a>
-					</ul>
-				</ul>
+
 			</div>
 
 		</div>
-
-	</div>
-	<!-- //footer container -->
-</footer>
-<!-- //footer -->
+		<!-- //footer container -->
+	</footer>
+	<!-- 탭메뉴를 위한 자바스크립트 함수 -->
+		<script type="text/javascript">
+  $(document).ready(function() {
+	  var result = '<c:out value="${result}"/>';
+	  checkModal(result);
+	  history.replaceState({}, null, null);
+	  function checkModal(result) {
+		  if (result === '' || history.state) {
+			  return;
+		  }
+		  
+		  if (parseInt(result) > 0) {
+			  $(".modal-body").html("게시글 " + parseInt(result) + " 번이 등록되었습니다.");
+		  }
+		  
+		  $("#myModal").modal("show");
+	  }
+	  
+	  $("#regBtn").on("click", function() {
+		  self.location = '/shop/shop';
+	  });
+	  
+	  var actionForm = $("#actionForm");
+	  
+	  $(".paginate_button a").on("click", function(e) {
+		  e.preventDefault();
+		  console.log('click');
+		  actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+		  actionForm.submit();
+	  });
+  });
+</script>
+	</body>
 </html>

@@ -33,30 +33,36 @@
          <div class="art-right-w3ls">
             <h2>회원가입</h2>
                   <div class="letter-w3ls">
+                  <input type="hidden"
+               		name="${_csrf.parameterName}" value="${_csrf.token}" />
+        			
                      <form role="form" action="/login/register" method="post">
                         <div class="form-left-to-w3l">
-                           <input type="text" name="userid" placeholder="Id" required="" style="color:#000;">
+                           <input type="text" name="userid" placeholder="Id" style="color:#000;" required="">
+                           <div class="clear"></div>
                         </div>
                         <div class="form-left-to-w3l">
-                           <input type="text" name="name" placeholder="이름" required="" style="color:#000;">
+                           <input type="text" name="name" placeholder="이름"  style="color:#000;" required="">
                         </div>
                         <div class="form-left-to-w3l">
-                           <input type="password" name="password" placeholder="비밀번호" required="" style="color:#000;">
+                           <input type="password" name="userpw" placeholder="비밀번호"  style="color:#000;" required="">
                         </div>
                         <div class="form-left-to-w3l">
-                           <input type="text" name="name" placeholder="휴대폰번호" required="" style="color:#000;">
+                           <input type="text" name="phone" placeholder="휴대폰번호"  style="color:#000;" required="">
                         </div>
                         <div class="form-left-to-w3l">
-                           <input type="email" name="email" placeholder="Email" required="" style="color:#000;">
+                           <input type="email" name="email" placeholder="Email"  style="color:#000;" required="">
                         </div>
-                        <div class="form-left-to-w3l margin-zero">
-                           <input type="checkbox" name="sex" value="man" style="color:#000;" onclick="oneCheckbox(this)"/>남자
-                           <input type="checkbox" name="sex" value="female" style="color:#000;" onclick="oneCheckbox(this)"/>여자
-                        </div>
+                         <div class="form-left-to-w3l margin-zero">
+                           <input type="checkbox" name="sex" value="남자" style="color:#000;" onclick="oneCheckbox(this)"/>남자
+                           <input type="checkbox" name="sex" value="여자" style="color:#000;" onclick="oneCheckbox(this)"/>여자
+                        </div> 
                         <div class="btnn">
                            <button type="submit">Sign Up</button>
                            <br>
                         </div>
+                        <input type="hidden" name="${_csrf.parameterName}"
+                        value="${_csrf.token}" />
                      </form>
                   </div>
          </div>

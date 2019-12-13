@@ -10,12 +10,14 @@ import com.ync.project.domain.ReviewVO;
   * @FileName	: ReviewService.java
   * @Date		: 2019. 11. 1. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 구매 정보 처리용 Service interface
   */
 public interface ReservationService {
 	public void register(ReservationVO reservation);
 	
 	public ReservationVO get(Long re_idx);
+	
+	public ReservationVO get2(int product_num);
 	
 	public boolean modify(ReservationVO reservation);
 	

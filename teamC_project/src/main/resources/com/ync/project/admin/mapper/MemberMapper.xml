@@ -80,8 +80,7 @@
 	<update id="update">
 	UPDATE team_c_member
 	set phone = #{phone},
-	email = #{email},
-	sex = #{sex}
+	    email = #{email}
 	WHERE userid = #{userid}
 	</update>
 	

@@ -13,6 +13,12 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 
 import lombok.extern.log4j.Log4j;
 
+/**
+  * @FileName	: CustomLoginSuccessHandler.java
+  * @Date		: 2019. 11. 06. 
+  * @Author		: 곽우렬
+  * @프로그램 설명 : 로그인 성공시 지정된 페이지로 이동
+  */
 @Log4j
 public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 
@@ -40,7 +46,7 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 
 		if (roleNames.contains("ROLE_USER")) {
 
-			response.sendRedirect("/sample/member");
+			response.sendRedirect("/");
 			return;
 		}
 

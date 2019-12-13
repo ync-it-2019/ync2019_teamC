@@ -21,7 +21,7 @@ import lombok.extern.log4j.Log4j;
   * @FileName	: ReviewControllerTests.java
   * @Date		: 2019. 10. 31. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 상품평 테스트
   */
 @RunWith(SpringJUnit4ClassRunner.class)
 
@@ -58,31 +58,17 @@ public class ReviewControllerTests {
 //				.getModelMap());
 //	}
 
+
 //	@Test
-//	public void testRegister() throws Exception {
+//	public void tetGet() throws Exception {
 //
-//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/shop/review/reviewregister")
-//				.param("title", "Test7")
-//				.param("content", "testcontent6")
-//				.param("userid", "msa4569")
-//				.param("product_num", "2")
-//				.param("img", "img1"))
-//				.andReturn().getModelAndView().getViewName();
-//
-//		log.info("resultPage");
-//
+//		log.info(mockMvc.perform(MockMvcRequestBuilders
+//				.get("/shop/review")
+//				.param("product_num", "1"))
+//				.andReturn()
+//				.getModelAndView()
+//				.getModelMap());
 //	}
-
-	@Test
-	public void tetGet() throws Exception {
-
-		log.info(mockMvc.perform(MockMvcRequestBuilders
-				.get("/shop/review")
-				.param("product_num", "1"))
-				.andReturn()
-				.getModelAndView()
-				.getModelMap());
-	}
 
 //	@Test
 //	public void testModify() throws Exception {

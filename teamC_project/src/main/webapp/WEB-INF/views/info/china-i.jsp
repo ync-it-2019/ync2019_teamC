@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html lang="kr">
 
@@ -150,7 +151,16 @@
 													 </li>
 					<li><a href="/shop/shop">패키지</a></li>
 					<li><a href="/faq/index_faq">자주묻는질문</a></li>
-					<li><a href="/login/login">Login</a></li>
+					<sec:authorize access="isAuthenticated()">
+					<sec:authentication property="principal.username" var="user_id" />
+					<li><a href="/front/mypage?userid=${user_id}">마이페이지</a></li>
+					<li><a href="/customLogout">
+					<i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
+					</sec:authorize>
+					<sec:authorize access="isAnonymous()">
+					<li><a href="/login/login">
+					<i class="fa fa-sign-out fa-fw"></i>Login</a></li>
+					</sec:authorize>
 					</ul>
 					</div>
 				</header>
@@ -279,27 +289,16 @@
 									</div>
 									<!-- //footer grid2 -->
 									<!-- footer grid3 -->
-									<div class="col-lg-4  footv3-left text-center">
-											<h3 class="mb-3">&nbsp;&nbsp;&nbsp;&nbsp;Navigation</h3>
-											<ul class="list-agileits">
-													<li>
-															<a href="/">
-																	Home
-															</a>
-													</li>
-													<li class="my-3">
-															<a href="about.html">국내여행</a>
-													</li>
-													<li class="mb-3">
-															<a href="services.html">아시아 여행</a>
-													</li>
-													<li class="mb-3"><a href="contact.html">패키지 여행</a>
-													</li>
-													<li>
-															<a href="contact.html">FAQ</a>
-													</li>
-											</ul>
-									</div>
+				<div class="col-lg-4  footv3-left text-center">
+					<h3 class="mb-3">&nbsp;&nbsp;&nbsp;&nbsp;Navigation</h3>
+					<ul class="list-agileits">
+						<li><a href="/"> Home </a></li>
+						<li class="my-3"><a href="/info/seoul-i">국내</a></li>
+						<li class="mb-3"><a href="/info/japan-i">아시아 </a></li>
+						<li class="mb-3"><a href="/info/england-i">유럽</a></li>
+						<li><a href="/shop/shop">패키지</a></li>
+					</ul>
+				</div>
 									<!-- //footer grid3 -->
 							</div>
 							<!-- //footer row -->

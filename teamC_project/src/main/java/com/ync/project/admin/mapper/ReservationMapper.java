@@ -13,7 +13,7 @@ import com.ync.project.domain.ReviewVO;
   * @FileName	: ReservationMapper.java
   * @Date		: 2019. 11. 1. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 구매 정보 처리용 Mapper interface
   */
 public interface ReservationMapper {
   
@@ -35,5 +35,7 @@ public interface ReservationMapper {
  	public void updateReplyCnt(@Param("re_idx") Long bno, @Param("amount") int amount);
 
 	public List<ReservationVO> getListWithPaging(Criteria cri);
+
+	public ReservationVO get2(int product_num);
  	}
 

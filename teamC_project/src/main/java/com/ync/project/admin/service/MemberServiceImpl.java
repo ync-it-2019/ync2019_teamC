@@ -7,11 +7,18 @@ import org.springframework.stereotype.Service;
 
 import com.ync.project.admin.mapper.MemberMapper;
 import com.ync.project.domain.Criteria;
+import com.ync.project.domain.InquireVO;
 import com.ync.project.domain.MemberVO;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
+/**
+ * @FileName	: MemberService.java
+ * @Date		: 2019. 10. 29. 
+ * @Author		: 곽우렬
+ * @프로그램 설명 : 회원 정보 처리용 Service implement
+ */
 @Log4j
 @Service
 @AllArgsConstructor
@@ -51,6 +58,14 @@ public class MemberServiceImpl implements MemberService{
 	public int getTotal(Criteria cri) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public boolean modify(MemberVO member) {
+		
+		log.info("modify......" + member);
+		
+		return mapper.update(member) == 1;
 	}
 
 }

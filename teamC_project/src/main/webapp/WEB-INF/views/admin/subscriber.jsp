@@ -28,7 +28,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      <!-- Navigation -->
         <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <a class="navbar-brand" href="management.html"><img src="/resources/img/logo2.png"></a>
+                 <a class="navbar-brand" href="/"><img src="/resources/img/logo2.png"></a>
             </div>
             <!-- /.navbar-header -->
            <ul class="nav navbar-nav navbar-right">
@@ -59,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="/admin/inquire">상품문의 관리</a>
                         </li>
                         <li>
-                            <a href="/admin/subscriber">예약/구매 관리</a>
+                            <a href="/admin/subscriber">구매 관리</a>
                             <!-- /.nav-second-level -->
                         </li>
                     </ul>
@@ -71,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div id="page-wrapper">
         <div class="col-md-12 graphs">
 	   <div class="xs">
-  	 <h3>예약 관리</h3>
+  	 <h3>구매 관리</h3>
     <div class="panel panel-warning" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="">
       <div class="panel-body no-padding">
         <table class="table table-striped">
@@ -87,7 +87,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <tbody>
 							<c:forEach items="${reservation}" var="reservation">
 						<tr>
-						<td><c:out value="${reservation.re_idx}"/></td>
+						<td><a style="color:black" href='/admin/reservationget?re_idx=<c:out value="${reservation.re_idx }" />'>
+						<c:out value="${reservation.re_idx}"/></a></td>
 						<td><c:out value="${reservation.product_num}"/></td>
 						<td><c:out value="${reservation.userid}"/></td>
 						<td><fmt:formatDate pattern="yyyy-MM-dd" value="${reservation.re_date}"/></td>

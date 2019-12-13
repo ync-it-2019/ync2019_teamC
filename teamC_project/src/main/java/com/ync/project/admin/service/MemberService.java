@@ -11,7 +11,7 @@ import com.ync.project.domain.MemberVO;
   * @FileName	: MemberService.java
   * @Date		: 2019. 10. 29. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 회원 정보 처리용 Service interface
   */
 public interface MemberService {
 	public void register(MemberVO member);
@@ -23,4 +23,6 @@ public interface MemberService {
 	 public List<MemberVO> getListWithPaging(Criteria cri);
 
 	public int getTotal(Criteria cri);
+
+	public boolean modify(MemberVO member);
 }

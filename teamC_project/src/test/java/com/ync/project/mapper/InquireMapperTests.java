@@ -19,7 +19,7 @@ import lombok.extern.log4j.Log4j;
   * @FileName	: InquireMapperTests.java
   * @Date		: 2019. 10. 30. 
   * @Author		: 곽우렬
-  * @프로그램 설명 :
+  * @프로그램 설명 : 상품 문의 mapper테스트
   */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -76,7 +76,7 @@ public class InquireMapperTests {
 //	public void testRead() {
 //
 //		// 존재하는 게시물 번호로 테스트
-//		InquireVO inquire = mapper.read((long) 1);
+//		InquireVO inquire = mapper.get((long) 43);
 //
 //		log.info(inquire);
 //
@@ -104,6 +104,20 @@ public class InquireMapperTests {
 //		log.info("UPDATE COUNT: " + count);
 //
 //	}
+	
+	//답변 수정/등록
+	@Test
+	public void testUpdate() {
+
+		InquireVO inquire = new InquireVO();
+		inquire.setQ_idx((long) 52);
+		inquire.setAnswer_check("o");
+		inquire.setAnswer("답변이 등록 되었습니다.");
+
+		int count = mapper.update2(inquire);
+		log.info("UPDATE COUNT: " + count);
+
+	}
 
 	//페이징
 //	@Test

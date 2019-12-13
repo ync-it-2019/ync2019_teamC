@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib  uri="http://www.springframework.org/security/tags"  prefix="sec" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -28,7 +29,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- Navigation -->
      <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
          <div class="navbar-header">
-             <a class="navbar-brand" href="management.html"><img src="/resources/img/logo2.png"></a>
+              <a class="navbar-brand" href="/"><img src="/resources/img/logo2.png"></a>
          </div>
          <!-- /.navbar-header -->
          <ul class="nav navbar-nav navbar-right">
@@ -59,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                          <a href="/admin/inquire">상품문의 관리</a>
                      </li>
                      <li>
-                         <a href="/admin/subscriber">예약/구매 관리</a>
+                         <a href="/admin/subscriber">구매 관리</a>
                          <!-- /.nav-second-level -->
                      </li>
                  </ul>
@@ -73,113 +74,137 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	     <div class="xs">
   	       <h3>패키지 등록</h3>
   	         <div class="tab-content">
-						<div class="tab-pane active" id="horizontal-form">
-							<form class="form-horizontal">
-								<div class="form-group">
-									<label class="col-sm-2 control-label">패키지 명</label>
-									<div class="col-sm-8">
-										<input type="text" class="form-control1">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-2 control-label">국가</label>
-									<div class="col-sm-8">
-										<input type="text" class="form-control1">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-2 control-label">도시</label>
-									<div class="col-sm-8">
-										<input type="text" class="form-control1" >
-									</div>
-								</div>
+				<div class="tab-pane active" id="horizontal-form">
+				<form role="form" action="/admin/registration" method="post" class="form-horizontal" enctype="multipart/form-data">
+				        <input type="hidden" name="main_img" value="">
+				        <input type="hidden" name="slide_img1" value="">
+				        <input type="hidden" name="slide_img2" value="">
+				        <input type="hidden" name="slide_img3" value="">
+				        <input type="hidden" name="slide_img4" value="">
+	        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+				<div class="form-group">
+				<label class="col-sm-2 control-label">패키지 명</label>
+				<div class="col-sm-8">
+				  <input type="text" class="form-control1" name="product_name">
+				</div>
+			  </div>
+				<div class="form-group">
+				  <label class="col-sm-2 control-label">국가</label>
+				  <div class="col-sm-8">
+				  <input type="text" class="form-control1" name="country">
+				</div>
+			  </div>
+				<div class="form-group">
+				  <label class="col-sm-2 control-label">도시</label>
+				  <div class="col-sm-8">
+				  <input type="text" class="form-control1" name="city">
+				</div>
+			  </div>
                 <div class="form-group">
                   <label class="col-sm-2 control-label">출발일</label>
                   <div class="col-sm-8">
-                  <input type="date" class="form-control1" ng-model="model.date">
+                  <input type="date" class="form-control1"  name="departure_date">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">도착일</label>
                 <div class="col-sm-8">
-                <input type="date" class="form-control1" ng-model="model.date">
+                <input type="date" class="form-control1"  name="arrival_date">
               </div>
             </div>
-								<div class="form-group">
-									<label class="col-sm-2 control-label label-input-sm">교통편</label>
-									<div class="col-sm-8">
-										<input type="text" class="form-control1 input-sm">
-									</div>
-								</div>
+			  <div class="form-group">
+				<label class="col-sm-2 control-label">교통편</label>
+				<div class="col-sm-8">
+			<select name="transportation" class="form-control1" name="transportation">
+				<option value="none" selected="selected">교통편 선택</option>
+				<option value="airplane">비행기</option>
+				<option value="bus">버스</option>
+				<option value="ship">배</option>	
+		      </select>
+			</div>
+		  </div>
                 <div class="form-group">
-                  <label class="col-sm-2 control-label label-input-sm">메인 이미지</label>
+                  <label class="col-sm-2 control-label">메인 이미지</label>
                   <div class="col-sm-8">
-                  <input type="file" class="form-control1 input-sm">
+                  <input type="file" class="form-control1" name="uploadFile">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-2 control-label label-input-sm">상품 이미지1</label>
+                  <label class="col-sm-2 control-label">상품 이미지1</label>
                   <div class="col-sm-8">
-                  <input type="file" class="form-control1 input-sm">
+                  <input type="file" class="form-control1" name="uploadFile">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-2 control-label label-input-sm">상품 이미지2</label>
+                  <label class="col-sm-2 control-label">상품 이미지2</label>
                   <div class="col-sm-8">
-                  <input type="file" class="form-control1 input-sm">
+                  <input type="file" class="form-control1" name="uploadFile">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-2 control-label label-input-sm">상품 이미지3</label>
+                  <label class="col-sm-2 control-label">상품 이미지3</label>
                   <div class="col-sm-8">
-                  <input type="file" class="form-control1 input-sm">
+                  <input type="file" class="form-control1" name="uploadFile">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-2 control-label label-input-sm">상품 이미지4</label>
+                  <label class="col-sm-2 control-label">상품 이미지4</label>
                   <div class="col-sm-8">
-                  <input type="file" class="form-control1 input-sm">
+                  <input type="file" class="form-control1" name="uploadFile">
                   </div>
                 </div>
                   <div class="form-group">
-                    <label for="theme" class="col-sm-2 control-label label-input-sm">테마</label>
+                    <label class="col-sm-2 control-label">테마</label>
                     <div class="col-sm-8">
-                      	<input type="text" class="form-control1 input-sm" id="theme">
+               <select name="theme" class="form-control1" name="theme">
+				<option value="none" selected="selected">테마선택</option>
+				<option value="soccer">축구</option>
+				<option value="baseball">야구</option>
+				<option value="amusement">놀이공원</option>
+				<option value="program">TV명소</option>
+		      </select>
+                      	
                     </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-2 control-label label-input-sm">가격</label>
+                  <label class="col-sm-2 control-label">가격</label>
                   <div class="col-sm-8">
-                      <input type="text" class="form-control1 input-sm">
+                      <input type="text" class="form-control1" name="costprice">
                   </div>
               </div>
               <div class="form-group">
-              <label class="col-sm-2 control-label label-input-sm">여행일정</label>
+              <label class="col-sm-2 control-label">여행일정</label>
               <div class="col-sm-8">
-              <input type="text" class="form-control1 input-sm" id="itinerary">
+              <input type="text" class="form-control1" name="itinerary">
               </div>
             </div>
             <div class="form-group">
-            <label class="col-sm-2 control-label label-input-sm">호텔, 관광지정보</label>
-            <div class="col-sm-8">
-            <textarea rows="6"  class="form-control1 input-sm" style="resize: none;"></textarea>
-            </div>
+            <label class="col-sm-2 control-label">호텔, 관광지정보</label>
+            <br>
+          <textarea cols="70" rows="10" style="resize:none" name='hotel_tour'></textarea>
           </div>
-							</form>
-						</div>
-					</div>
-
-      <div class="panel-footer">
+          <div class="form-group">
+              <label class="col-sm-2 control-label">메인화면 여부</label>
+              <div class="col-sm-8">
+              <input type="checkbox" name="main_check" value="o" style="color:#000;"/>o
+              <input type="checkbox" name="main_check" value="x" style="color:#000;"/>x
+              </div>
+            </div>
+                <div class="panel-footer">
 		<div class="row">
 			<div class="col-sm-8 col-sm-offset-2">
-				<button class="btn-success btn">Submit</button>
-				<a href="product_manage.html"><button class="btn-default btn">Cancel</button></a>
+				<button type="submit" class="btn-success btn">등록</button>
+				<a href="/admin/product_manage"><button class="btn-default btn">취소</button></a>
 			</div>
 		</div>
 	 </div>
-  </div>
-  <div class="copy_layout">
-      <p>Copyright © 2015 Modern. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+	 <input type="hidden" name="${_csrf.parameterName}"
+                        value="${_csrf.token}" />
+	 </form>		
+	 </div>
+	 </div>
+
+
   </div>
   </div>
       </div>

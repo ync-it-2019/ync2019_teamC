@@ -14,6 +14,12 @@ import com.ync.project.domain.MemberVO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
+/**
+  * @FileName	: MemberServiceTests.java
+  * @Date		: 2019. 10. 31. 
+  * @Author		: 곽우렬
+  * @프로그램 설명 : 회원 service 테스트
+  */
 @RunWith(SpringRunner.class)
 @ContextConfiguration({ "file:src/main/webapp/WEB-INF/spring/root-context.xml" })
 @Log4j
@@ -30,11 +36,11 @@ public class MemberServiceTests {
 //	@Test
 //	public void testRegister() {
 //		MemberVO member = new MemberVO();
-//		member.setUserid("abc123");
-//		member.setName("강병국");
-//		member.setUserpw("4879");
-//		member.setPhone("010-7391-2698");
-//		member.setEmail("abv@naver.com");
+//		member.setUserid("mvc789");
+//		member.setName("이시국");
+//		member.setUserpw("1234");
+//		member.setPhone("010-2341-2785");
+//		member.setEmail("Lee@gamil.com");
 //		member.setSex("남자");
 //		
 //		service.register(member);
@@ -42,14 +48,14 @@ public class MemberServiceTests {
 //		log.info("생성된 아이디 : " + member.getUserid());
 //	}
 	//목록작업 테스트
-	@Test
-	public void testGetList() {
-		//service.getList().forEach(member -> log.info(member));
-		service.getListWithPaging(new com.ync.project.domain.Criteria(1, 10)).forEach(member -> log.info(member));
-	}
-	//조회작업 테스트
 //	@Test
-//	public void testGet() {
-//		log.info(service.get("kwr123"));
+//	public void testGetList() {
+//		//service.getList().forEach(member -> log.info(member));
+//		service.getListWithPaging(new com.ync.project.domain.Criteria(1, 10)).forEach(member -> log.info(member));
 //	}
+	//조회작업 테스트
+	@Test
+	public void testGet() {
+		log.info(service.get("user2"));
+	}
 }

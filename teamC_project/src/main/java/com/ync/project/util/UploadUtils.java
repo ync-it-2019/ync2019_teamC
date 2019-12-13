@@ -13,6 +13,12 @@ import org.springframework.web.multipart.MultipartFile;
 import lombok.extern.log4j.Log4j;
 import net.coobird.thumbnailator.Thumbnailator;
 
+/**
+  * @FileName	: UploadUtils.java
+  * @Date		: 2019. 11. 11. 
+  * @Author		: 곽우렬
+  * @프로그램 설명 : 이미지 업로드 클래스
+  */
 @Log4j
 public class UploadUtils {
 	

@@ -47,14 +47,12 @@
 	                                product_num,
 	                                userid,
 	                                re_date,
-	                                price,
-	                                status)
+	                                price)
 	                        values (team_c_seq_reservation.nextval,
 	                               #{product_num},
 	                               #{userid},
 	                               sysdate,
-	                               #{price},
-	                               #{status})
+	                               #{price})
 	</insert>
 	
 	<insert id="insertSelectKey">
@@ -66,14 +64,12 @@
 	                                product_num,
 	                                userid,
 	                                re_date,
-	                                price,
-	                                status)
+	                                price)
 	                        values (#{re_idx},
 	                                #{product_num},
 	                                #{userid},
 	                                sysdate,
-	                                #{price},
-	                                #{status})       
+	                                #{price})       
 	</insert>
 	
 	<select id="read" resultMap="reservationMap">
@@ -100,7 +96,7 @@
 	       userid,
 	       re_date,
 	       status
-	FROM (SELECT /*+INDEX_DESC(team_c_review ta_xpk_reservation) */
+	FROM (SELECT /*+INDEX_DESC(team_c_reservation ta_xpk_reservation) */
 	             rownum rn,
 	             re_idx,
 	             product_num,
