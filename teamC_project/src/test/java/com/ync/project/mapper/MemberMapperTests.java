@@ -30,16 +30,16 @@ public class MemberMapperTests {
 	@Setter(onMethod_ = @Autowired)
 	private MemberMapper mapper;
 
-	@Test
-	public void testRead() {
-
-		MemberVO vo = mapper.read("user2");
-
-		log.info(vo);
-		
-		vo.getAuthList().forEach(authVO -> log.info(authVO));
-
-	}
+//	@Test
+//	public void testRead() {
+//
+//		MemberVO vo = mapper.read("user2");
+//
+//		log.info(vo);
+//		
+//		vo.getAuthList().forEach(authVO -> log.info(authVO));
+//
+//	}
 	//리스트출력
 //	@Test
 //	public void testGetList() {
@@ -61,11 +61,29 @@ public class MemberMapperTests {
 //		log.info(member);
 //	}
 	
+	//관리자 생성
+	
+	@Test
+	public void testInsert2() {
+		MemberVO member = new MemberVO();
+		member.setUserid("admin4");
+		member.setName("관리자4");
+		member.setUserpw("pw4");
+		member.setPhone("010-8523-7136");
+		member.setEmail("qwe@gmail.com");
+		member.setSex("남자");
+		member.setAuth("ROLE_ADMIN");
+		
+		mapper.insert2(member);
+		
+		log.info(member);
+	}
+	
 	//삭제
 //	@Test
 //	public void testDelete() {
 //
-//		log.info("DELETE COUNT: " + mapper.delete("kang123"));
+//		log.info("DELETE COUNT: " + mapper.delete("admin4"));
 //	}
 
 	//수정

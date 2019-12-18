@@ -22,6 +22,8 @@ public interface MemberMapper {
 	
 	public void insert(MemberVO member);
 	
+	public void insert2(MemberVO member);
+	
 	public int delete(String ueserid);
 	   
 	public int update(MemberVO member);

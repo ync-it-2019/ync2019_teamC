@@ -16,6 +16,8 @@ import com.ync.project.domain.MemberVO;
 public interface MemberService {
 	public void register(MemberVO member);
 	
+	public void register2(MemberVO member);
+	
 	public MemberVO get(String userid);
 	
 	public List<MemberVO> getList();
