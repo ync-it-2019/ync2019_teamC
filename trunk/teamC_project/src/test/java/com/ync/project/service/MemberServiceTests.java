@@ -47,6 +47,24 @@ public class MemberServiceTests {
 //		
 //		log.info("생성된 아이디 : " + member.getUserid());
 //	}
+	
+	//등록작업 테스트2
+	@Test
+	public void testRegister2() {
+		MemberVO member = new MemberVO();
+		member.setUserid("admin5");
+		member.setName("관리자5");
+		member.setUserpw("pw5");
+		member.setPhone("010-2341-2785");
+		member.setEmail("Lee@gamil.com");
+		member.setSex("남자");
+		member.setAuth("ROLE_ADMIN");
+		
+		service.register2(member);
+		
+		log.info("생성된 아이디 : " + member.getUserid());
+	}
+	
 	//목록작업 테스트
 //	@Test
 //	public void testGetList() {

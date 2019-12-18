@@ -72,6 +72,23 @@
 	                           #{sex})
 	</insert>
 	
+		<insert id="insert2">
+	INSERT INTO team_c_member (userid,
+	                           name,
+	                           userpw,
+	                           phone,
+	                           email,
+	                           sex,
+	                           auth)
+	                  values  (#{userid},
+	                           #{name},
+	                           #{userpw},
+	                           #{phone},
+	                           #{email},
+	                           #{sex},
+	                           #{auth})
+	</insert>
+	
 	<delete id="delete">
 	DELETE FROM team_c_member 
 	WHERE  userid = #{userid}

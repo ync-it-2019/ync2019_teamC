@@ -68,4 +68,39 @@ public class MemberController {
 		rttr.addFlashAttribute("result", member.getUserid());
 		return "redirect:/";
 	}
+	
+	
+	/**
+	  * @Method 설명 :관리자 회원가입호출
+	  * @Method Name : get_register2
+	  * @Date : 2019. 12. 18.
+	  * @작성자 : 곽우렬
+	  * @return
+	  */
+	@GetMapping("/login/adminregister")
+	public String get_register2() {
+		
+		log.info("register");
+		
+		return "login/adminregister";
+	}
+	
+	/**
+	  * @Method 설명 : 관리자 회원가입
+	  * @Method Name : register2
+	  * @Date : 2019. 12. 18.
+	  * @작성자 : 곽우렬
+	  * @param member
+	  * @param rttr
+	  * @return
+	  */
+	@PostMapping("/login/adminregister")
+	public String register2(MemberVO member, RedirectAttributes rttr) {
+		log.info("register: " + member);
+		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
+	      member.setUserpw(scpwd.encode(member.getUserpw()));
+		service.register2(member);
+		rttr.addFlashAttribute("result", member.getUserid());
+		return "redirect:/";
+	}
 }

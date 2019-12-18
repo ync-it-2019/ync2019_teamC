@@ -39,7 +39,7 @@
 		 -->
 		<multipart-config>
 
-	<!-- <location>D:\\2019_spring\\teamC_project_RB-1.0\\src\\main\\webapp\\resources\\upload</location>-->
+	<!-- <location>D:\\2019_spring\\teamC_project_RB-1.0\\src\\main\\webapp\\resources\\upload</location> -->
 			<location>/home/team_c/upload</location>
 			<max-file-size>20971520</max-file-size> <!--1MB * 20 -->
 			<max-request-size>41943040</max-request-size><!-- 40MB -->

@@ -21,6 +21,7 @@ public class MemberVO {
 	private String phone;
 	private String email;
 	private String sex;
+	private String auth;
 	private List<AuthVO> authList;
 
 }
