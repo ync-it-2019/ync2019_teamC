@@ -1,6 +1,6 @@
 # 2019 Spring Project teamC source
 
-오프라인 소모임 모집 사이트 https://team-b.ync-it.com
+오프라인 소모임 모집 사이트 https://team-c.ync-it.com
 
 Team Members
 
